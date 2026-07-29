@@ -47,9 +47,9 @@ a { color: inherit; text-decoration: none; }
 .text-link { color: #d6dced; font-size: 14px; font-weight: 650; border-bottom: 1px solid #566078; padding-bottom: 5px; }
 .text-link span { margin-left: 9px; color: var(--blue); }
 .hero-visual { position: relative; min-height: 490px; display: grid; place-items: center; }
-.logo-stage { width: min(530px, 100%); border: 1px solid rgba(72,161,255,.27); border-radius: 50%; padding: 40px; background: radial-gradient(circle, rgba(65,89,255,.18), transparent 65%); box-shadow: inset 0 0 70px rgba(48,57,255,.08); }
+.logo-stage { width: min(560px, 100%); border: 1px solid rgba(72,161,255,.27); border-radius: 50%; padding: 28px; background: radial-gradient(circle, rgba(65,89,255,.18), transparent 65%); box-shadow: inset 0 0 70px rgba(48,57,255,.08); }
 .logo-stage::before { content: ""; position: absolute; inset: 14%; border: 1px dashed rgba(70,184,255,.25); border-radius: 50%; animation: rotate 28s linear infinite; }
-.logo-stage img { position: relative; z-index: 2; display: block; border-radius: 50%; mix-blend-mode: screen; filter: contrast(1.12) saturate(1.15); }
+.logo-stage img { position: relative; z-index: 2; display: block; border-radius: 50%; filter: contrast(1.06) saturate(1.08); }
 .signal-card { position: absolute; z-index: 3; display: flex; align-items: center; gap: 9px; background: rgba(13,18,37,.9); border: 1px solid var(--line); border-radius: 8px; padding: 10px 13px; color: #ced7eb; font-size: 11px; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
 .signal-card span { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 9px var(--blue); }
 .signal-one { top: 18%; left: -2%; }.signal-two { right: -4%; top: 43%; }.signal-three { left: 10%; bottom: 12%; }

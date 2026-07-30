@@ -10,6 +10,8 @@ Landing page estática para la presencia empresarial oficial de Nexora Solutions
 - `script.js`: menú móvil y año automático.
 - `assets/nexora-logo.webp`: versión optimizada del logo oficial para la web.
 - `assets/nexora-logo.png`: archivo original proporcionado.
+- `assets/portfolio/`: logos optimizados de los proyectos ReacciónGPS, Rainca, Ferrearca y La Ramireña.
+- `assets/og-portfolio.jpg`: tarjeta social de Nexora Solutions para compartir el enlace.
 - `favicon.svg`: favicon ligero inspirado en el logo oficial.
 
 ## Datos empresariales

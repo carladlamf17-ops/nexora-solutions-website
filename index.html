@@ -6,7 +6,7 @@
   <title data-i18n="meta.homeTitle">Nexora Solutions | Soluciones tecnológicas para empresas</title>
   <meta name="description" data-i18n-content="meta.homeDescription" content="Nexora Solutions desarrolla sistemas empresariales, aplicaciones web y móviles, automatización e integraciones para empresas en Venezuela.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#070a15">
+  <meta name="theme-color" content="#f4f2fa">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nexora Solutions">
   <meta property="og:description" data-i18n-content="meta.homeOgDescription" content="Sistemas empresariales, aplicaciones y automatización. Conoce el portafolio de Nexora Solutions.">
@@ -17,14 +17,15 @@
   <meta property="og:locale" data-i18n-content="meta.locale" content="es_VE">
   <link rel="canonical" href="https://www.nexorasolutionsve.com/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261013-tech">
+  <script src="script.js?v=20261013-tech" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": ["Organization", "LocalBusiness"],
       "legalName": "Emprendimiento Carla Moreno",
       "name": "Nexora Solutions",
+      "logo": "https://www.nexorasolutionsve.com/assets/nexora-official.png",
       "url": "https://www.nexorasolutionsve.com/",
       "email": "ceo@nexorasolutionsve.com",
       "telephone": "+584228882571",
@@ -40,11 +41,10 @@
 </head>
 <body>
   <a class="skip-link" href="#contenido" data-i18n="global.skip">Saltar al contenido</a>
-  <header class="site-header">
+  <div class="business-bar"><div class="container"><span data-i18n="business.location">El Tigre, Anzoátegui · Venezuela</span><a href="mailto:ceo@nexorasolutionsve.com">ceo@nexorasolutionsve.com</a><a href="tel:+584228882571">+58 422-8882571</a></div></div><header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Nexora Solutions, inicio" data-i18n-aria="global.brandAria">
-        <span class="brand-icon" aria-hidden="true">N</span>
-        <span>Nexora <strong>Solutions</strong></span>
+        <span class="brand-logo"><img src="assets/nexora-official.png" alt="Nexora Solutions" width="1536" height="1024"></span>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
         <span class="sr-only" data-i18n="global.openMenu">Abrir menú</span><span></span><span></span>
@@ -61,7 +61,7 @@
         <button type="button" data-language="es" aria-pressed="true">ES</button>
         <button type="button" data-language="en" aria-pressed="false">EN</button>
       </div>
-      <a class="button button-small header-cta" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n="global.whatsapp">Contactar por WhatsApp</a>
+      <a class="button button-small header-cta" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n="global.whatsapp">Hablemos ↗</a>
     </div>
   </header>
 
@@ -70,85 +70,37 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> <span data-i18n="hero.eyebrow">Tecnología para avanzar</span></p>
-          <h1 data-i18n-html="hero.title">Soluciones tecnológicas <em>para empresas</em></h1>
-          <p class="hero-lead" data-i18n="hero.lead">Desarrollo de software, automatización, integración y transformación digital para convertir necesidades reales en soluciones claras y confiables.</p>
+          <p class="eyebrow"><span></span> <span data-i18n="hero.eyebrow">SOFTWARE A LA MEDIDA · VENEZUELA</span></p>
+          <h1 data-i18n-html="hero.title">Software para tu<br><em>operación diaria.</em></h1>
+          <p class="hero-lead" data-i18n="hero.lead">Desarrollamos sistemas de inventario, gestión de clientes y documentos. Aplicaciones web, Windows y móviles adaptadas al trabajo de tu empresa.</p>
           <div class="hero-actions">
-            <a class="button" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n-html="global.whatsappArrow">Contactar por WhatsApp <span>↗</span></a>
+            <a class="button" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n-html="global.whatsappArrow">Consultar mi proyecto <span>↗</span></a>
             <a class="text-link" href="#portafolio" data-i18n-html="hero.projects">Ver proyectos <span>↓</span></a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="logo-stage">
-            <img src="assets/nexora-logo.webp" alt="Logo oficial de Nexora Solutions con RIF J-50851044-5" data-i18n-alt="hero.logoAlt" width="1200" height="675">
-          </div>
-          <div class="signal-card signal-one"><span></span><span data-i18n="signal.systems">Sistemas</span></div>
-          <div class="signal-card signal-two"><span></span><span data-i18n="signal.automation">Automatización</span></div>
-          <div class="signal-card signal-three"><span></span><span data-i18n="signal.integration">Integración</span></div>
-        </div>
+        <div class="hero-visual technology-visual">
+<div class="solution-tabs" role="group" aria-label="Explorar ejemplos de soluciones" data-i18n-aria="solution.aria"><button type="button" data-solution="inventory" aria-pressed="true" data-i18n="solution.inventory">Inventario</button><button type="button" data-solution="customers" aria-pressed="false" data-i18n="solution.customers">Clientes</button><button type="button" data-solution="documents" aria-pressed="false" data-i18n="solution.documents">Documentos</button></div>
+<div class="technology-canvas"><svg class="data-paths" viewBox="0 0 600 400" fill="none" aria-hidden="true"><path d="M75 195h85q25 0 25-25v-10q0-25 25-25h25M365 135h25q25 0 25 25v75q0 25 25 25h70"/><path d="M300 210v105"/><circle class="packet packet-one" r="4"/><circle class="packet packet-two" r="4"/></svg>
+<div class="workflow-input"><span class="workflow-icon" aria-hidden="true">⇄</span><span class="workflow-input-label">Productos y movimientos</span></div>
+<div class="workflow-core"><img src="assets/nexora-official.png" alt="Nexora Solutions, desarrollo de software" width="1536" height="1024"><span class="workflow-system-label">Control de inventario</span></div>
+<div class="workflow-output"><span class="workflow-check" aria-hidden="true">✓</span><span class="workflow-output-label">Existencias organizadas</span></div>
+<div class="workflow-platforms"><span>Web</span><span>Windows</span><span data-i18n="solution.mobile">Móvil</span></div>
+</div><div class="solution-footer"><span data-i18n="solution.note">Esquema de una solución · Plataforma según el proyecto</span><button type="button" class="motion-toggle" aria-pressed="false" data-i18n="solution.pause">Pausar animación</button></div>
+</div>
       </div>
-      <div class="container proof-line">
-        <span data-i18n="proof.real">Soluciones reales</span><i></i><span data-i18n="proof.responsible">Implementación responsable</span><i></i><span data-i18n="proof.software">Software para operar mejor</span>
-      </div>
+      <div class="container proof-line"><span data-i18n="proof.real">Software a la medida</span><i></i><span data-i18n="proof.responsible">Web, Windows y móvil</span><i></i><span data-i18n="proof.software">Hecho para tu operación</span><a href="#servicios" aria-label="Explorar servicios" data-i18n-aria="art.scroll">↓</a></div>
     </section>
 
-    <section class="visual-manifesto" aria-label="Nexora Solutions, software para empresas" data-i18n-aria="manifesto.aria">
-      <div class="container">
-        <div class="manifesto-frame">
-          <img src="assets/og-portfolio.jpg" alt="Nexora Solutions, software para empresas: sistemas, automatización y aplicaciones" data-i18n-alt="manifesto.alt" width="1200" height="675">
-          <div class="manifesto-badge"><span></span><span data-i18n="manifesto.badge">Desarrollo tecnológico a la medida</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services" id="servicios">
-      <div class="container">
-        <div class="section-heading">
-          <div><p class="kicker" data-i18n="services.kicker">01 / Servicios</p><h2 data-i18n="services.title">Tecnología aplicada a las necesidades de tu empresa.</h2></div>
-          <p data-i18n="services.intro">Soluciones profesionales enfocadas en optimizar operaciones, conectar información y facilitar el trabajo diario.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service-card featured">
-            <span class="card-number">01</span>
-            <div class="service-icon" aria-hidden="true">⌁</div>
-            <h3 data-i18n="services.oneTitle">Sistemas empresariales personalizados</h3>
-            <p data-i18n="services.oneText">Herramientas adaptadas a procesos, usuarios y objetivos específicos de cada organización.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">02</span>
-            <div class="service-icon" aria-hidden="true">◫</div>
-            <h3 data-i18n="services.twoTitle">Aplicaciones Web, Windows y móviles</h3>
-            <p data-i18n="services.twoText">Experiencias digitales prácticas, accesibles y preparadas para el entorno de trabajo adecuado.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">03</span>
-            <div class="service-icon" aria-hidden="true">⚡</div>
-            <h3 data-i18n="services.threeTitle">Automatización de procesos</h3>
-            <p data-i18n="services.threeText">Flujos que reducen tareas repetitivas, errores operativos y tiempos de respuesta.</p>
-          </article>
-          <article class="service-card">
-            <span class="card-number">04</span>
-            <div class="service-icon" aria-hidden="true">⛁</div>
-            <h3 data-i18n="services.fourTitle">Integración de bases de datos y servicios</h3>
-            <p data-i18n="services.fourText">Información conectada de forma segura para mejorar la continuidad y visibilidad operacional.</p>
-          </article>
-          <article class="service-card wide">
-            <span class="card-number">05</span>
-            <div class="service-icon" aria-hidden="true">◎</div>
-            <div><h3 data-i18n="services.fiveTitle">Consultoría y soporte tecnológico</h3><p data-i18n="services.fiveText">Acompañamiento para evaluar alternativas, resolver incidencias y tomar decisiones técnicas con mayor claridad.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <section class="client-strip" aria-label="Proyectos de nuestro portafolio"><div class="container"><p data-i18n="clients.label">TECNOLOGÍA PARA OPERACIONES REALES</p><div class="client-logos"><img src="assets/portfolio/reaccion.webp" alt="ReacciónGPS" width="1000" height="667"><img src="assets/portfolio/rainca.webp" alt="Rainca" width="716" height="290"><img src="assets/portfolio/ferrearca.webp" alt="Ferrearca" width="1000" height="381"><img src="assets/portfolio/ramirena.webp" alt="La Ramireña" width="1000" height="667"></div></div></section>
 
     <section class="section portfolio" id="portafolio">
       <div class="container">
         <div class="section-heading portfolio-heading">
           <div>
             <p class="kicker" data-i18n="portfolio.kicker">02 / Portafolio</p>
-            <h2 data-i18n="portfolio.title">Sistemas creados para operaciones reales.</h2>
+            <h2 data-i18n-html="portfolio.title">Proyectos desarrollados<br>por Nexora.</h2>
           </div>
-          <p data-i18n="portfolio.intro">Proyectos desarrollados para organizaciones de distintos sectores, desde agricultura y ferretería hasta mantenimiento industrial y gestión de clientes.</p>
+          <p data-i18n="portfolio.intro">Conoce el trabajo de Nexora en gestión empresarial, inventario, mantenimiento industrial y agricultura.</p>
         </div>
 
         <div class="portfolio-grid">
@@ -166,7 +118,7 @@
                 <li data-i18n="portfolio.reaccionFeatureTwo">Centro de trabajo digital</li>
                 <li data-i18n="portfolio.reaccionFeatureThree">Control de inventario</li>
               </ul>
-            </div>
+            <button type="button" class="project-detail text-link" data-i18n="project.details">Explorar proyecto ↗</button></div>
           </article>
 
           <article class="project-card project-rainca">
@@ -183,7 +135,7 @@
                 <li data-i18n="portfolio.raincaFeatureTwo">Operación desde dispositivos móviles</li>
                 <li data-i18n="portfolio.raincaFeatureThree">Información de mantenimiento</li>
               </ul>
-            </div>
+            <button type="button" class="project-detail text-link" data-i18n="project.details">Explorar proyecto ↗</button></div>
           </article>
 
           <article class="project-card project-ferrearca">
@@ -200,7 +152,7 @@
                 <li data-i18n="portfolio.ferrearcaFeatureTwo">Control de existencias</li>
                 <li data-i18n="portfolio.ferrearcaFeatureThree">Gestión de movimientos</li>
               </ul>
-            </div>
+            <button type="button" class="project-detail text-link" data-i18n="project.details">Explorar proyecto ↗</button></div>
           </article>
 
           <article class="project-card project-ramirena">
@@ -217,13 +169,49 @@
                 <li data-i18n="portfolio.ramirenaFeatureTwo">Entorno empresarial</li>
                 <li data-i18n="portfolio.ramirenaFeatureThree">Sector agrícola</li>
               </ul>
-            </div>
+            <button type="button" class="project-detail text-link" data-i18n="project.details">Explorar proyecto ↗</button></div>
           </article>
         </div>
 
-        <div class="portfolio-cta">
-          <p data-i18n="portfolio.ctaText">¿Tienes un proceso que todavía depende de hojas, mensajes o tareas manuales?</p>
-          <a class="button" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n-html="portfolio.ctaButton">Conversemos sobre tu sistema <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="kicker" data-i18n="services.kicker">01 / Servicios</p><h2 data-i18n-html="services.title">Qué podemos desarrollar<br>para tu empresa.</h2></div>
+          <p data-i18n="services.intro">Desde una aplicación hasta un sistema que conecta toda tu operación. El punto de partida es lo que tu negocio necesita resolver.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card featured">
+            <span class="card-number">01</span>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v14H4zM8 7V3h8v4M4 12h16M10 12v4h4v-4"/></svg></div>
+            <h3 data-i18n="services.oneTitle">Sistemas empresariales personalizados</h3>
+            <p data-i18n="services.oneText">Organiza inventario, clientes y movimientos en un sistema adaptado a la forma en que trabaja tu equipo.</p>
+          </article>
+          <article class="service-card">
+            <span class="card-number">02</span>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="15" height="12" rx="2"/><path d="M7 20h7m-3-4v4"/><rect x="17" y="10" width="4" height="10" rx="1"/></svg></div>
+            <h3 data-i18n="services.twoTitle">Aplicaciones Web, Windows y móviles</h3>
+            <p data-i18n="services.twoText">Lleva tus procesos a la web, al escritorio o al móvil, con herramientas diseñadas para quienes las usan cada día.</p>
+          </article>
+          <article class="service-card">
+            <span class="card-number">03</span>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 10-13h-7z"/></svg></div>
+            <h3 data-i18n="services.threeTitle">Automatización de procesos</h3>
+            <p data-i18n="services.threeText">Reduce el registro manual y conecta tareas repetitivas para que tu equipo pueda concentrarse en lo que aporta valor.</p>
+          </article>
+          <article class="service-card">
+            <span class="card-number">04</span>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="8" cy="5" rx="5" ry="2"/><path d="M3 5v10c0 3 10 3 10 0V5M3 10c0 3 10 3 10 0m12 0h-8m4-4 4 4-4 4"/></svg></div>
+            <h3 data-i18n="services.fourTitle">Integración de bases de datos y servicios</h3>
+            <p data-i18n="services.fourText">Conecta bases de datos y servicios para consultar información sin depender de archivos dispersos.</p>
+          </article>
+          <article class="service-card wide">
+            <span class="card-number">05</span>
+            <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-3a8 8 0 0 1 16 0v3M4 12H2v6h4v-6zm16 0h2v6h-4v-6zm0 6c0 4-4 4-8 4"/></svg></div>
+            <div><h3 data-i18n="services.fiveTitle">Consultoría y soporte tecnológico</h3><p data-i18n="services.fiveText">Evalúa qué digitalizar primero, define el alcance de tu solución y recibe acompañamiento técnico para darle continuidad.</p></div>
+          </article>
         </div>
       </div>
     </section>
@@ -232,11 +220,12 @@
       <div class="container about-grid">
         <div>
           <p class="kicker" data-i18n="about.kicker">03 / Sobre Nexora</p>
-          <h2 data-i18n="about.title">Tecnología útil, con un propósito claro.</h2>
+          <h2 data-i18n="about.title">Entendemos tu negocio. Después, construimos.</h2>
+          <div class="about-brand"><img src="assets/nexora-official.png" alt="Logo oficial de Nexora Solutions" width="1536" height="1024" loading="lazy"></div>
         </div>
         <div class="about-copy">
-          <p data-i18n="about.one">Nexora Solutions ofrece servicios de desarrollo e implementación tecnológica para empresas que buscan mejorar sus procesos y capacidades digitales.</p>
-          <p data-i18n="about.two">Cada proyecto parte de comprender la necesidad del negocio para proponer una solución práctica, mantenible y adecuada a su operación.</p>
+          <p data-i18n="about.one">Somos Nexora Solutions, una empresa de desarrollo e implementación tecnológica en El Tigre, Venezuela. Creamos software a la medida para conectar la tecnología con el trabajo diario de las empresas.</p>
+          <p data-i18n="about.two">Nuestro enfoque empieza por comprender tus procesos, tus usuarios y el problema que necesitas resolver. Así, cada decisión técnica tiene un propósito dentro de tu negocio.</p>
           <div class="principles">
             <div><span>01</span><strong data-i18n="about.clarity">Claridad</strong><p data-i18n="about.clarityText">Objetivos y alcance comprensibles.</p></div>
             <div><span>02</span><strong data-i18n="about.functionality">Funcionalidad</strong><p data-i18n="about.functionalityText">Soluciones orientadas al uso real.</p></div>
@@ -246,12 +235,14 @@
       </div>
     </section>
 
+<section class="section process" id="proceso"><div class="container"><div class="section-heading"><div><p class="kicker" data-i18n="process.kicker">DEL PROBLEMA A LA SOLUCIÓN</p><h2 data-i18n="process.title">Un camino claro para tu proyecto.</h2></div><p data-i18n="process.intro">Cada necesidad tiene su propio alcance. Estas etapas ayudan a ordenar la conversación y la implementación.</p></div><div class="process-grid"><article><span>01</span><h3 data-i18n="process.0.title">Escuchamos</h3><p data-i18n="process.0.text">Comprendemos tu operación, quién usará la herramienta y qué necesitas mejorar.</p></article><article><span>02</span><h3 data-i18n="process.1.title">Definimos</h3><p data-i18n="process.1.text">Acordamos prioridades, alcance y la plataforma adecuada para tu proyecto.</p></article><article><span>03</span><h3 data-i18n="process.2.title">Construimos</h3><p data-i18n="process.2.text">Desarrollamos la solución y revisamos los avances frente a lo acordado.</p></article><article><span>04</span><h3 data-i18n="process.3.title">Acompañamos</h3><p data-i18n="process.3.text">Revisamos la puesta en marcha y las necesidades de soporte y evolución.</p></article></div></div></section>
+<section class="section faq" id="preguntas"><div class="container faq-grid"><div><p class="kicker" data-i18n="faq.kicker">ANTES DE EMPEZAR</p><h2 data-i18n="faq.title">Buenas preguntas. Respuestas claras.</h2><p data-i18n="faq.intro">Tu proyecto comienza por entender las opciones.</p></div><div><details><summary data-i18n="faq.0.title">¿Necesito tener una idea completamente definida?</summary><p data-i18n="faq.0.text">Puedes comenzar contándonos qué proceso te cuesta tiempo, dónde se pierde información o qué necesita tu equipo. Esa conversación ayuda a definir la solución.</p></details><details><summary data-i18n="faq.1.title">¿Cuánto cuesta y cuánto tarda un proyecto?</summary><p data-i18n="faq.1.text">Depende del alcance, las integraciones y la plataforma. El costo y los tiempos deben definirse después de revisar tus necesidades; cada proyecto requiere una propuesta específica.</p></details><details><summary data-i18n="faq.2.title">¿Pueden trabajar con un sistema que ya utilizo?</summary><p data-i18n="faq.2.text">Nexora ofrece integración de bases de datos y servicios. Primero revisamos las posibilidades de acceso, compatibilidad y requisitos de tu sistema actual.</p></details><details><summary data-i18n="faq.3.title">¿Qué pasa después de desarrollar el software?</summary><p data-i18n="faq.3.text">Nexora ofrece consultoría y soporte tecnológico. Las condiciones de puesta en marcha, mantenimiento y acompañamiento se definen en el alcance de cada proyecto.</p></details></div></div></section>
     <section class="section contact" id="contacto">
       <div class="container contact-grid">
         <div>
           <p class="kicker light" data-i18n="contact.kicker">04 / Contacto</p>
-          <h2 data-i18n="contact.title">Conversemos sobre tu próximo proyecto.</h2>
-          <p class="contact-intro" data-i18n="contact.intro">Comunícate con Nexora Solutions por nuestros canales comerciales oficiales.</p>
+          <h2 data-i18n-html="contact.title">Conversemos sobre<br>lo que necesitas.</h2>
+          <p class="contact-intro" data-i18n="contact.intro">Indícanos qué proceso quieres digitalizar, qué sistema utilizas y quiénes usarán la solución. Con esa información podemos revisar el alcance.</p><a class="button contact-action" href="https://wa.me/584228882571?text=Hola%20Nexora%2C%20quiero%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer" data-i18n="contact.action">Cuéntanos tu idea ↗</a>
         </div>
         <div class="contact-panel" aria-label="Datos de contacto de Nexora Solutions" data-i18n-aria="contact.aria">
           <div><span data-i18n="contact.email">Correo comercial</span><a href="mailto:ceo@nexorasolutionsve.com">ceo@nexorasolutionsve.com</a></div>
@@ -274,8 +265,8 @@
           <div><dt data-i18n="company.legalName">Nombre legal</dt><dd>Emprendimiento Carla Moreno</dd></div>
           <div><dt data-i18n="company.tradeName">Nombre comercial</dt><dd>Nexora Solutions</dd></div>
           <div><dt>RIF</dt><dd>J-50851044-5</dd></div>
-          <div><dt data-i18n="company.type">Tipo de empresa</dt><dd data-i18n="company.typeValue">Sole Proprietorship</dd></div>
-          <div><dt data-i18n="company.industry">Industria</dt><dd data-i18n="company.industryValue">Technology</dd></div>
+          <div><dt data-i18n="company.type">Tipo de empresa</dt><dd data-i18n="company.typeValue">Empresa unipersonal</dd></div>
+          <div><dt data-i18n="company.industry">Industria</dt><dd data-i18n="company.industryValue">Tecnología</dd></div>
           <div><dt data-i18n="company.country">País</dt><dd>Venezuela</dd></div>
         </dl>
         <div class="legal-notice" id="aviso-legal">
@@ -290,7 +281,7 @@
 
   <footer class="site-footer">
     <div class="container footer-top">
-      <a class="brand" href="#inicio"><span class="brand-icon" aria-hidden="true">N</span><span>Nexora <strong>Solutions</strong></span></a>
+      <a class="brand" href="#inicio"><span class="brand-logo"><img src="assets/nexora-official.png" alt="Nexora Solutions" width="1536" height="1024"></span></a>
       <p>Nexora Solutions es el nombre comercial de Emprendimiento Carla Moreno.<br>
       RIF J-50851044-5.<br>
       Domicilio operativo: Calle Democracia, casa N.º 53-41, sector La Charneca, parroquia El Tigre, municipio Simón Rodríguez, estado Anzoátegui, Venezuela.</p>
@@ -298,5 +289,6 @@
     </div>
     <div class="container footer-bottom"><span>© <span id="current-year">2026</span> Nexora Solutions</span><span data-i18n="footer.official">Sitio empresarial oficial</span></div>
   </footer>
+<dialog class="project-dialog" aria-labelledby="project-dialog-title"><button type="button" class="dialog-close" aria-label="Cerrar" data-i18n-aria="project.close">×</button><p class="kicker" data-i18n="project.label">PROYECTO NEXORA</p><h2 id="project-dialog-title"></h2><p class="dialog-description"></p><ul class="dialog-features"></ul><a class="button" href="https://wa.me/584228882571" target="_blank" rel="noopener noreferrer" data-i18n="project.contact">Conversemos sobre una solución para ti ↗</a></dialog>
 </body>
 </html>

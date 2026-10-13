@@ -1,33 +1,25 @@
-# Nexora Solutions — sitio empresarial
+# Nexora Solutions
 
-Landing page estática para la presencia empresarial oficial de Nexora Solutions.
+Sitio empresarial estático publicado en https://www.nexorasolutionsve.com/ mediante GitHub Pages.
 
-## Archivos
+## Contenido
 
-- `index.html`: página principal.
-- `privacy.html`: política de privacidad.
-- `styles.css`: estilos responsive.
-- `script.js`: menú móvil y año automático.
-- `assets/nexora-logo.webp`: versión optimizada del logo oficial para la web.
-- `assets/nexora-logo.png`: archivo original proporcionado.
-- `assets/portfolio/`: logos optimizados de los proyectos ReacciónGPS, Rainca, Ferrearca y La Ramireña.
-- `assets/og-portfolio.jpg`: tarjeta social de Nexora Solutions para compartir el enlace.
-- `favicon.svg`: favicon ligero inspirado en el logo oficial.
+Servicios de desarrollo, automatización, integración y soporte; portafolio de ReacciónGPS, Rainca, Ferrearca y La Ramireña; proceso de trabajo; preguntas frecuentes; contacto comercial; información empresarial y privacidad. Versiones en español e inglés.
 
-## Datos empresariales
+El esquema interactivo de la portada explica ejemplos de soluciones. No es una captura de un producto ni muestra cifras de resultados. Los proyectos se describen con la información del portafolio existente.
 
-El correo, WhatsApp, país, nombre legal, nombre comercial, RIF, tipo de empresa e industria publicados fueron proporcionados como datos reales de Nexora Solutions. No se publica una dirección física.
+## Marca y animaciones
+
+`assets/nexora-official.png` es el PNG oficial proporcionado por el propietario. Se utiliza sin alterar sus píxeles, transparencia ni proporciones. El encuadre del encabezado se realiza con CSS.
+
+La portada permite seleccionar inventario, clientes y documentos. Las animaciones muestran el flujo de información y se pueden pausar. El sitio respeta `prefers-reduced-motion`, conserva el contenido sin JavaScript y añade entradas al desplazarse cuando el navegador las admite.
+
+No hay formularios de envío, analítica ni solicitudes automáticas a WhatsApp. Los enlaces comerciales requieren una acción del visitante.
 
 ## Vista local
 
-Desde esta carpeta se puede iniciar cualquier servidor HTTP estático. Por ejemplo:
-
-```powershell
-python -m http.server 8080
-```
-
-Luego abrir `http://localhost:8080`.
+Servir esta carpeta con un servidor HTTP estático y abrir su URL local. El proyecto no necesita compilación ni instalación de dependencias.
 
 ## Publicación
 
-La carpeta es compatible con GitHub Pages, Firebase Hosting y otros proveedores de hosting estático. La publicación debe realizarse en un repositorio o proyecto nuevo, independiente de cualquier proyecto de Reacción GPS.
+GitHub Pages publica la rama `main`. Conservar `CNAME`, `robots.txt`, `sitemap.xml` y los archivos de privacidad. Verificar el resultado del despliegue y la página pública después de cada actualización.

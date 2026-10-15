@@ -27,3 +27,5 @@
 .case-mobile .screen-open{width:270px;max-width:100%;border:6px solid #222b42;border-radius:25px;box-shadow:0 20px 45px #1d284526}
 @media(max-width:900px){.brand-art{width:155px;height:86px}.project-strip a{padding-inline:16px}.project-strip img{height:76px}}
 @media(max-width:650px){.brand-art,.footer-main .brand-art{width:133px;height:74px}.project-strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr));min-height:220px}.project-strip a{height:110px;padding:14px 22px}.project-strip a:nth-child(2){border-right:0}.project-strip a:nth-child(-n+2){border-bottom:1px solid var(--line)}.project-strip img{width:175px;height:80px}}
+
+.brand-art img,.footer-main .brand-art img{height:100%;object-fit:contain}

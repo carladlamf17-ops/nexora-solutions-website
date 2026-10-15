@@ -4,7 +4,7 @@ module.exports = [
     "slug": "reaccion-gps",
     "name": "ReacciónGPS",
     "color": "orange",
-    "image": "reaccion-reportes-20261015.webp",
+    "image": "reaccion-inicio-oficial-20261015.webp",
     "logo": "reaccion.webp",
     "type": [
       "Gestión de operaciones y reportes",
@@ -19,8 +19,8 @@ module.exports = [
       "Web and Android platform for customers, work centre, forms, operations and area reports."
     ],
     "caption": [
-      "Catálogo de reportes · versión publicada · 15/10/2026",
-      "Report catalogue · published version · October 15, 2026"
+      "Inicio del centro de trabajo · captura real",
+      "Work centre home · actual application screen"
     ],
     "need": [
       "La atención al cliente continúa en el centro de trabajo, las planillas y las operaciones. La plataforma reúne esos recorridos con herramientas de gestión y consulta de reportes.",
@@ -41,11 +41,11 @@ module.exports = [
       ]
     ],
     "note": [
-      "La pantalla web se capturó de la versión publicada el 15 de octubre de 2026. Muestra el catálogo de herramientas de reportes, sin abrir expedientes de clientes ni documentos operativos. La vista Android corresponde a una captura de esa misma fecha.",
-      "The web screen was captured from the published application on October 15, 2026. It shows the reporting tools catalogue without opening customer records or operational documents. The Android view was captured on the same date."
+      "La pantalla de Inicio fue proporcionada por el propietario para este portafolio el 15 de octubre de 2026. Muestra la agenda, los pendientes por área y los accesos a tareas, clientes y escaneo de equipos. Las cantidades visibles no se presentan como resultados comerciales. La vista Android corresponde a una captura del 15 de octubre de 2026.",
+      "The owner provided this Home screen for the portfolio on October 15, 2026. It shows the agenda, pending items by area and access to tasks, customers and equipment scanning. Visible quantities are not presented as business results. The Android view was captured on October 15, 2026."
     ],
-    "width": 1920,
-    "height": 863,
+    "width": 1913,
+    "height": 923,
     "mobile": "reaccion-movil-20261015.webp",
     "mobileWidth": 1080,
     "mobileHeight": 2424,

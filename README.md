@@ -12,7 +12,7 @@ La apariencia vive en `styles.css`; las interacciones en `script.js`. Comprobar 
 
 El PNG oficial proporcionado por el propietario se conserva en `assets/nexora-official.png`. Su versión WebP usa compresión sin pérdida. El encuadre se realiza en CSS sin estirar ni redibujar el logo.
 
-- ReacciónGPS: captura de la aplicación publicada, pantalla de catálogo de reportes, tomada el 15/10/2026. La navegación Android procede de una captura de esa misma fecha. No se abrieron expedientes ni documentos de clientes.
+- ReacciónGPS: pantalla de Inicio proporcionada expresamente por el propietario el 15/10/2026. El PNG original se conserva sin cambios y se sirve una copia WebP sin pérdida. La navegación Android procede de una captura de esa misma fecha. Las cantidades visibles no se presentan como resultados comerciales.
 - Ferrearca ERP: centro contable de la entrega 1.15.65 y formulario vacío de beneficios laborales, localizados en `G:/Apps Development/ferrearca_app/ferrearca_app/output/finance_delivery_20261013` y `output/usability_20261013`. Son capturas del 13/10/2026; no prueban instalación en SERVER.
 - Ferrearca Catálogo: captura directa de https://catalogoferrearca.web.app/catalogo/ferrearca tomada el 15/10/2026, con ficha independiente y enlace al sitio público.
 - Rainca: aplicación real compilada y ejecutada en una copia local aislada. Inicio por roles y formulario vacío, sin crear reportes ni tocar datos del proyecto original.

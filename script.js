@@ -31,7 +31,7 @@
     });
     const frame = frames[index];
     if(!frame) return;
-    stage.classList.toggle('featuring-mobile',frame.dataset.project==='Ferrearca');
+    stage.classList.toggle('solo-screen',frame.dataset.project!=='ReacciónGPS');
     const label = stage.querySelector('.stage-label');
     label.href = frame.dataset.url;
     label.querySelector('span:nth-child(2)').replaceChildren(document.createTextNode(frame.dataset.project));

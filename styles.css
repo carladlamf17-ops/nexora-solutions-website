@@ -14,5 +14,16 @@
 .featured-mobile{aspect-ratio:1936/1056;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#f2e7e7}.featured-mobile>img{grid-column:2;grid-row:1;height:100%;width:auto;max-width:100%;aspect-ratio:auto;object-fit:contain;padding:12px;justify-self:center;min-height:0}.featured-context{grid-column:1;grid-row:1;padding-left:28px;color:#562c32;display:flex;flex-direction:column;align-items:flex-start;gap:14px}.featured-context img{width:140px;height:55px;aspect-ratio:auto;object-fit:contain;object-position:left}.featured-context strong{font-family:var(--heading);font-size:clamp(24px,3vw,46px);line-height:.95}.featured-context small{font-size:10px}.motion-paused .desktop-screen,.motion-paused .phone-screen,.motion-paused .stage-label{animation:none!important}
 @media(max-width:650px){.featured-mobile>img{padding:6px}.featured-context{padding-left:15px;gap:8px}.featured-context img{width:95px;height:34px}.featured-context strong{font-size:25px}.featured-context small{font-size:7px}}
 .hero-stage.solo-screen .phone-screen{visibility:hidden;pointer-events:none}
-.featured-frame img{object-fit:contain;background:#fff}.case-live{margin-top:28px}
+.featured-frame img{object-fit:cover;object-position:center top;background:var(--paper)}.case-live{margin-top:28px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.motion-ready .reveal{opacity:1!important;transform:none!important}}
+
+/* Keep the complete official mark and its RIF visible. */
+.brand-art,.footer-main .brand-art{width:180px;height:100px;display:flex;align-items:center;overflow:visible}
+.brand-art img,.footer-main .brand-art img{position:static;width:100%;height:auto;max-width:100%;object-fit:contain}
+.project-strip .wrap{min-height:146px}
+.project-strip a{height:108px;padding:10px 24px}
+.project-strip img{width:210px;height:86px;object-fit:contain}
+.case-mobile{grid-column:1/-1}
+.case-mobile .screen-open{width:270px;max-width:100%;border:6px solid #222b42;border-radius:25px;box-shadow:0 20px 45px #1d284526}
+@media(max-width:900px){.brand-art{width:155px;height:86px}.project-strip a{padding-inline:16px}.project-strip img{height:76px}}
+@media(max-width:650px){.brand-art,.footer-main .brand-art{width:133px;height:74px}.project-strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr));min-height:220px}.project-strip a{height:110px;padding:14px 22px}.project-strip a:nth-child(2){border-right:0}.project-strip a:nth-child(-n+2){border-bottom:1px solid var(--line)}.project-strip img{width:175px;height:80px}}

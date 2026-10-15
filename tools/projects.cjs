@@ -5,7 +5,7 @@ module.exports = [
     "name": "ReacciónGPS",
     "color": "orange",
     "image": "reaccion-inicio-oficial-20261015.webp",
-    "logo": "reaccion.webp",
+    "logo": "reaccion-tight.webp",
     "type": [
       "Gestión de operaciones y reportes",
       "Operations management & reporting"
@@ -63,7 +63,7 @@ module.exports = [
     "name": "Ferrearca",
     "color": "red",
     "image": "ferrearca-erp-20261013.webp",
-    "logo": "ferrearca.webp",
+    "logo": "ferrearca-tight.webp",
     "type": [
       "Sistema de gestión comercial y contable",
       "Commercial & accounting management system"
@@ -87,6 +87,7 @@ module.exports = [
     "features": [
       [
         "Inventario, recepción de mercancía, conteo físico y salidas.",
+        "APK Android para el conteo físico en el almacén.",
         "Notas de entrega, facturas registradas y cotizaciones.",
         "Clientes, proveedores, crédito y cobros.",
         "Centro contable: fiscal, caja y bancos, conciliación, valoración del inventario y libro contable.",
@@ -94,6 +95,7 @@ module.exports = [
       ],
       [
         "Inventory, goods receipts, stock counts and stock issues.",
+        "Android APK for warehouse stock counts.",
         "Delivery notes, registered invoices and quotations.",
         "Customers, suppliers, credit and collections.",
         "Accounting centre: tax, cash and banks, reconciliation, inventory valuation and ledger.",
@@ -101,11 +103,15 @@ module.exports = [
       ]
     ],
     "note": [
-      "Estas pantallas corresponden a la entrega 1.15.65 preparada el 13 de octubre de 2026, localizada en el proyecto de Ferrearca. Se muestra el centro contable y un formulario vacío de beneficios. La captura de la entrega no certifica su instalación en el servidor del negocio.",
-      "These screens belong to delivery 1.15.65 prepared on October 13, 2026, located in the Ferrearca project. They show the accounting centre and an empty benefits form. A delivery capture does not certify installation on the business server."
+      "Estas pantallas corresponden a la entrega 1.15.65 preparada el 13 de octubre de 2026, localizada en el proyecto de Ferrearca. Se muestra el centro contable y un formulario vacío de beneficios. La vista móvil se renderizó desde el código de la APK 1.18.11 con datos de demostración. La captura de la entrega no certifica su instalación en el servidor del negocio.",
+      "These screens belong to delivery 1.15.65 prepared on October 13, 2026, located in the Ferrearca project. They show the accounting centre and an empty benefits form. The mobile view was rendered from APK 1.18.11 source with demonstration data. A delivery capture does not certify installation on the business server."
     ],
     "width": 1440,
     "height": 1000,
+    "mobile": "ferrearca-conteo-11811-demo.webp",
+    "mobileWidth": 780,
+    "mobileHeight": 1688,
+    "mobileCaption": ["Conteo Android · interfaz 1.18.11 · datos de demostración", "Android stock count · interface 1.18.11 · demonstration data"],
     "second": "ferrearca-beneficios-20261013.webp",
     "secondWidth": 1440,
     "secondHeight": 1100,
@@ -122,7 +128,7 @@ module.exports = [
     "slug": "catalogo-ferrearca",
     "name": "Ferrearca · Catálogo",
     "color": "red",
-    "logo": "ferrearca.webp",
+    "logo": "ferrearca-tight.webp",
     "duplicateBrand": true,
     "image": "ferrearca-catalogo-20261015.webp",
     "width": 1425,
@@ -179,7 +185,7 @@ module.exports = [
     "color": "blue",
     "image": "rainca-inicio.webp",
     "second": "rainca-formulario.webp",
-    "logo": "rainca.webp",
+    "logo": "rainca-tight.webp",
     "type": [
       "Mantenimiento industrial",
       "Industrial maintenance"
@@ -230,7 +236,7 @@ module.exports = [
     "name": "La Ramireña",
     "color": "green",
     "image": "ramirena-acceso.webp",
-    "logo": "ramirena.webp",
+    "logo": "ramirena-tight.webp",
     "type": [
       "Gestión agropecuaria",
       "Agricultural business management"

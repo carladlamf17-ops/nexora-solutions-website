@@ -31,7 +31,21 @@
     });
     const frame = frames[index];
     if(!frame) return;
-    stage.classList.toggle('solo-screen',frame.dataset.project!=='ReacciónGPS');
+    const phone = stage.querySelector('.phone-screen');
+    const hasMobile = Boolean(frame.dataset.mobile);
+    stage.classList.toggle('solo-screen',!hasMobile);
+    phone.inert = !hasMobile;
+    phone.setAttribute('aria-hidden',String(!hasMobile));
+    if(hasMobile){
+      const button = phone.querySelector('button');
+      const image = button.querySelector('img');
+      image.src = '/assets/screens/'+frame.dataset.mobile;
+      image.alt = frame.dataset.project+' Android';
+      image.width = Number(frame.dataset.mobileWidth);
+      image.height = Number(frame.dataset.mobileHeight);
+      button.dataset.caption = frame.dataset.mobileCaption;
+      button.setAttribute('aria-label',frame.dataset.mobileCaption);
+    }
     const label = stage.querySelector('.stage-label');
     label.href = frame.dataset.url;
     label.querySelector('span:nth-child(2)').replaceChildren(document.createTextNode(frame.dataset.project));

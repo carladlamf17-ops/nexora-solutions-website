@@ -1,25 +1,34 @@
 # Nexora Solutions
 
-Sitio empresarial estático publicado en https://www.nexorasolutionsve.com/ mediante GitHub Pages.
+Sitio estático de https://www.nexorasolutionsve.com/, publicado con GitHub Pages desde `main`.
 
-## Contenido
+## Editar y generar
 
-Servicios de desarrollo, automatización, integración y soporte; portafolio de ReacciónGPS, Rainca, Ferrearca y La Ramireña; proceso de trabajo; preguntas frecuentes; contacto comercial; información empresarial y privacidad. Versiones en español e inglés.
+`tools/build-site.cjs` contiene el contenido y las plantillas compartidas. Ejecutar `node tools/build-site.cjs` después de editarlo. Genera las portadas ES/EN, ocho páginas de proyecto, dos páginas de privacidad, robots y sitemap. Los HTML generados se incluyen en Git para que Pages no necesite dependencias de compilación.
 
-El esquema interactivo de la portada explica ejemplos de soluciones. No es una captura de un producto ni muestra cifras de resultados. Los proyectos se describen con la información del portafolio existente.
+La apariencia vive en `styles.css`; las interacciones en `script.js`. Comprobar `node --check script.js`, `python tools/verify-site.py` y `git diff --check`. La comprobación de archivos no sustituye la revisión visual en escritorio y móvil.
 
-## Marca y animaciones
+## Marca y capturas
 
-`assets/nexora-official.png` es el PNG oficial proporcionado por el propietario. Se utiliza sin alterar sus píxeles, transparencia ni proporciones. El encuadre del encabezado se realiza con CSS.
+El PNG oficial proporcionado por el propietario se conserva en `assets/nexora-official.png`. Su versión WebP usa compresión sin pérdida. El encuadre se realiza en CSS sin estirar ni redibujar el logo.
 
-La portada permite seleccionar inventario, clientes y documentos. Las animaciones muestran el flujo de información y se pueden pausar. El sitio respeta `prefers-reduced-motion`, conserva el contenido sin JavaScript y añade entradas al desplazarse cuando el navegador las admite.
+- ReacciónGPS: captura existente de una prueba visual de escritorio. Los clientes y las cantidades son datos de prueba.
+- Ferrearca: captura de una prueba visual Flutter de la pantalla de conteo móvil. Metas y cantidades son ejemplos de prueba.
+- Rainca: aplicación real compilada y ejecutada en una copia local aislada. Inicio por roles y formulario vacío, sin crear reportes ni tocar datos del proyecto original.
+- La Ramireña: pantalla pública de acceso de la aplicación publicada. Se limpiaron los campos antes de capturarla; no contiene credenciales ni datos internos.
 
-No hay formularios de envío, analítica ni solicitudes automáticas a WhatsApp. Los enlaces comerciales requieren una acción del visitante.
+Los WebP en `assets/screens` se usan para mostrar las interfaces. Las leyendas explican el contexto y las cifras no se presentan como resultados comerciales. No se usan testimonios, métricas ni pantallas inventadas. Barlow y Barlow Condensed se alojan localmente con su licencia OFL.
 
-## Vista local
+## Interacciones y privacidad
 
-Servir esta carpeta con un servidor HTTP estático y abrir su URL local. El proyecto no necesita compilación ni instalación de dependencias.
+La portada alterna entre tres capturas de escritorio cada ocho segundos, con selección manual. Ferrearca aparece como pantalla móvil. El cambio automático se detiene al pasar el cursor, recibir foco, ocultar la pestaña o pausar las animaciones. Se respeta `prefers-reduced-motion`. Las imágenes se pueden ampliar en un diálogo con cierre por botón y Escape.
 
-## Publicación
+El sitio conserva contenido y enlaces con JavaScript desactivado. El menú móvil usa un botón accesible; las preguntas usan `details`. No hay analítica, formulario de envío ni mensajes automáticos. Correo y WhatsApp requieren una acción del visitante.
 
-GitHub Pages publica la rama `main`. Conservar `CNAME`, `robots.txt`, `sitemap.xml` y los archivos de privacidad. Verificar el resultado del despliegue y la página pública después de cada actualización.
+## SEO y publicación
+
+Cada ruta tiene título, descripción, canonical, idiomas recíprocos y datos estructurados de empresa/página; los proyectos añaden breadcrumbs. El sitemap incluye doce rutas. Mantener el dominio y los datos empresariales consistentes. La imagen social muestra la página real.
+
+Esperar a que la ejecución `pages build and deployment` termine en `success` y revisar la URL pública con una consulta nueva. Comprobar también una ruta interna, el sitemap y las dimensiones reales de la vista móvil.
+
+Se incluyen la etiqueta de Google proporcionada por el propietario en el generador y el archivo `googled07dc9284c04d6fc.html` en la raíz. Search Console necesita que el propietario complete la verificación desde su sesión. No se puede inferir esa verificación a partir de que el sitio esté publicado. La optimización técnica no garantiza indexación ni una primera posición.

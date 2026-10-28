@@ -238,3 +238,38 @@
 .service-card-v2 .service-card-link>span{background:var(--accent);color:#fff;width:38px;height:38px;border-radius:10px;font-size:23px}
 @media(max-width:1000px){.service-card-v2 .service-card-top{padding:24px;gap:14px}.service-card-body{padding:26px}.service-directory .service-card-v2 h3{font-size:34px}}
 @media(max-width:650px){.service-directory{gap:22px}.service-card-v2 .service-card-top{min-height:110px;padding:22px}.service-card-v2 .service-symbol{width:52px;height:52px;border-radius:12px}.service-card-category>strong{font-size:10px}.service-card-category>span{font-size:8px}.service-card-v2 .service-card-number{font-size:72px;right:20px}.service-card-body{padding:24px}.service-directory .service-card-v2 h3{font-size:33px}.service-card-v2 .service-card-body>p{font-size:16px;margin-bottom:20px}.service-card-tags{gap:6px;margin-bottom:24px}.service-card-tags li{font-size:11px;padding:7px 9px}}
+
+.security-panel{background:linear-gradient(145deg,#11283e,#101d30 70%);color:white;padding:30px;border:1px solid #263d52;border-radius:18px;box-shadow:0 22px 50px #11253b1c;min-width:0;position:relative;overflow:hidden}
+.security-panel:before{content:'';position:absolute;top:0;left:30px;right:30px;height:3px;background:linear-gradient(90deg,#47d9d0,#527bff)}
+.security-panel-head{display:flex;gap:15px;align-items:center;font-size:9px;letter-spacing:.12em;color:#a6bdcf;margin-bottom:30px}
+.security-panel-mark{width:48px;height:48px;display:grid;place-items:center;border:1px solid #3d6976;border-radius:12px;color:#6ce2db;background:#163648}
+.security-panel-arrow{margin-left:auto;color:#6ce2db;font-size:23px}
+.security-panel-kicker{font-size:9px;letter-spacing:.14em;color:#78d9d3;margin-bottom:14px}
+.security-panel h2,.security-panel h3{font:800 clamp(36px,3.5vw,52px)/1.04 var(--heading);color:#f6fbff;letter-spacing:-.015em}
+.security-panel-areas{margin:28px 0}
+.security-panel-areas>div{display:flex;align-items:center;gap:17px;border-top:1px solid #ffffff14;padding:16px 0}
+.security-panel-areas>div:last-child{border-bottom:1px solid #ffffff14}
+.security-area-index{font-size:11px;color:#62cfc9;width:26px;flex-shrink:0}
+.security-panel-areas strong{font-size:17px;font-weight:500;display:block}
+.security-panel-areas p{font-size:13px;line-height:1.5;color:#9eb4c8;margin:4px 0 0}
+.security-panel-credential{display:flex;align-items:center;gap:18px;padding:17px;background:#fff;color:#142a40;border-radius:11px}
+.security-panel-logo{display:grid;place-items:center;width:90px;flex-shrink:0;border-right:1px solid #e0e8ef;padding-right:17px}
+.security-panel-logo img{width:72px;height:48px;object-fit:contain}
+.security-panel-credential small{font-size:8px;letter-spacing:.08em;color:#5b6c7c;display:block;margin-bottom:6px}
+.security-panel-credential strong{display:block;font-size:18px;font-weight:600}
+.security-panel-credential strong>span{color:#8ca0b3;margin-inline:4px}
+.security-credential-link{display:block;font-size:10px;color:#3154df;margin-top:6px}
+.security-panel-credential:hover .security-credential-link{text-decoration:underline;text-underline-offset:3px}
+.security-intro-v2{background:#0e192a}
+.security-intro-v2 .security-grid{align-items:center;grid-template-columns:1fr 1fr;gap:80px}
+.security-intro-v2 h2{font-size:clamp(60px,6vw,90px)}
+.security-intro-v2 h2 em{color:#69ded5}
+.security-intro-copy>p:not(.eyebrow){font-size:19px;line-height:1.7;color:#b3c3d6;max-width:490px;margin-top:28px}
+.security-intro-v2 .security-panel p{font-size:13px}
+.security-intro-v2 .security-panel .security-panel-kicker{font-size:9px;color:#78d9d3}
+.security-intro-v2 .security-panel{box-shadow:none;background:linear-gradient(145deg,#173149,#111e30);border-color:#2a425a}
+.security-intro-copy>.security-intro-training{font-size:12px!important;color:#889eb8!important;max-width:400px}
+.security-intro-v2 .button{background:#5cdbd0;color:#102c3b;border-radius:6px}
+.security-intro-v2 .button:hover{background:#7ae9df}
+@media(max-width:1000px){.security-intro-v2 .security-grid{gap:35px}.security-panel{padding:25px}.security-panel-credential{gap:12px;padding:14px}.security-panel-logo{width:75px;padding-right:12px}.security-panel-logo img{width:60px}.security-panel-credential strong{font-size:16px}}
+@media(max-width:760px){.security-intro-v2 .security-grid{grid-template-columns:1fr;gap:35px}.security-panel h2,.security-panel h3{font-size:42px}.security-intro-v2 h2{font-size:65px}.security-panel-head{font-size:8px;gap:12px}.security-panel-credential small{font-size:7px}.security-panel-credential strong{font-size:16px}.security-intro-copy>p:not(.eyebrow){font-size:17px}}

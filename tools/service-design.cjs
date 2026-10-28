@@ -24,7 +24,7 @@ function config(s){return styles[s.slug]||styles['desarrollo-software'];}
 const projects = require('./projects.cjs');
 const projectMap = {'desarrollo-software':'reaccion-gps','sistemas-contables':'ferrearca','sistemas-inventario':'ferrearca','automatizacion-procesos':'rainca','sistemas-administrativos':'ferrearca','sistemas-comerciales':'catalogo-ferrearca','sistemas-operativos':'rainca'};
 function visual(s,i){
- if(s.slug==='ciberseguridad') return `<aside class="security-proof"><span class="security-proof-icon">${icon('shield')}</span><p class="eyebrow">${i?'NETWORKS & CYBERSECURITY':'REDES Y CIBERSEGURIDAD'}</p><h2>${i?'Technology.<br>With protection.':'Tecnología.<br>Con protección.'}</h2><div class="security-proof-brand"><img src="/assets/portfolio/cisco.svg" alt="Cisco" width="216" height="114"><div><strong>CCNA · CyberOps</strong><span>${i?'Staff certifications':'Certificaciones del personal'}</span></div></div><a href="#formacion">${i?'Meet our team’s training':'Conoce la formación del equipo'} ↗</a></aside>`;
+ if(s.slug==='ciberseguridad') return require('./security-panel.cjs')(i);
  const p=projects.find(p=>p.slug===projectMap[s.slug])||projects[0];
  return `<figure class="portfolio-proof"><div class="proof-label"><span>${i?'BUILT BY NEXORA':'DESARROLLADO POR NEXORA'}</span><span>↗</span></div><a class="proof-image" href="${i?'/en':''}/proyectos/${p.slug}/"><img src="/assets/screens/${p.image}" alt="${i?'Actual application screen':'Pantalla real de la aplicación'} ${p.name}" width="${p.width||1440}" height="${p.height||900}" fetchpriority="high"></a><figcaption><div><strong>${p.name}</strong><p>${p.caption[i]}</p></div><a href="${i?'/en':''}/proyectos/${p.slug}/">${i?'View project':'Ver proyecto'} ↗</a></figcaption></figure>`;
 }

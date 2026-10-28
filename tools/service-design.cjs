@@ -26,7 +26,7 @@ const projectMap = {'desarrollo-software':'reaccion-gps','sistemas-contables':'f
 function visual(s,i){
  if(s.slug==='ciberseguridad') return require('./security-panel.cjs')(i);
  const p=projects.find(p=>p.slug===projectMap[s.slug])||projects[0];
- return `<figure class="portfolio-proof"><div class="proof-label"><span>${i?'BUILT BY NEXORA':'DESARROLLADO POR NEXORA'}</span><span>↗</span></div><a class="proof-image" href="${i?'/en':''}/proyectos/${p.slug}/"><img src="/assets/screens/${p.image}" alt="${i?'Actual application screen':'Pantalla real de la aplicación'} ${p.name}" width="${p.width||1440}" height="${p.height||900}" fetchpriority="high"></a><figcaption><div><strong>${p.name}</strong><p>${p.caption[i]}</p></div><a href="${i?'/en':''}/proyectos/${p.slug}/">${i?'View project':'Ver proyecto'} ↗</a></figcaption></figure>`;
+ return `<figure class="portfolio-proof"><div class="proof-label"><span>${i?'PROJECT FROM OUR PORTFOLIO':'PROYECTO DEL PORTAFOLIO'}</span><span>↗</span></div><a class="proof-image" href="${i?'/en':''}/proyectos/${p.slug}/"><img src="/assets/screens/${p.image}" alt="${i?'Actual application screen':'Pantalla real de la aplicación'} ${p.name}" width="${p.width||1440}" height="${p.height||900}" fetchpriority="high"></a><figcaption><div><strong>${p.name}</strong><p>${p.caption[i]}</p></div><a href="${i?'/en':''}/proyectos/${p.slug}/">${i?'View project':'Ver proyecto'} ↗</a></figcaption></figure>`;
 }
 const cardCopy = {
  'desarrollo-software': {

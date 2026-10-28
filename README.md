@@ -32,6 +32,10 @@ El carrete de `tools/logo-reel.cjs` usa animación CSS continua con dos grupos i
 
 Las certificaciones personales Cisco CCNA y CyberOps y la formación académica en Lone Star College fueron confirmadas por el propietario el 28/10/2026. No se suministró un enlace público de verificación. El contenido no atribuye una certificación empresarial ni una relación de partner a Nexora. Logo Cisco, sin modificar: https://commons.wikimedia.org/wiki/File:Cisco_logo_blue_2016.svg (autor Cisco). Logo Lone Star College, sin modificar: https://www.lonestar.edu/images/lsc-logo/lsc-logo-horizontal-stacked-blue.svg. Referencias de marca: https://www.cisco.com/c/en/us/about/brand-center/logo-usage-guidelines.html y https://www.lonestar.edu/college-departments/marketing-communications/brand-and-logo-styleguide.htm.
 
+## Organización de la información
+
+El menú distingue **Servicios** (lo que puede contratar la empresa), **Portafolio** (proyectos ya desarrollados) y **Cómo trabajamos** (etapas del proyecto), con un acceso a Contacto. Ciberseguridad forma parte de Servicios, junto a Desarrollo de sistemas a medida. El directorio explica primero estas dos áreas; el desarrollo agrupa seis especialidades y enlaza a la página general de desarrollo a medida. La portada presenta servicios, portafolio, proceso y contacto en ese orden. Las rutas existentes y sus canonical se conservan. Los títulos de las páginas de servicio distinguen necesidad, funciones y alcance; ciberseguridad utiliza títulos propios de una revisión de seguridad.
+
 ## SEO y publicación
 
 Cada ruta tiene título, descripción, canonical, idiomas recíprocos y datos estructurados de empresa/página; los proyectos y servicios añaden breadcrumbs. Los servicios añaden `Service` con cobertura El Tigre, Anzoátegui y Venezuela; los directorios añaden `ItemList`. El sitemap incluye 32 rutas. Mantener el dominio y los datos empresariales consistentes. La imagen social muestra la página real.

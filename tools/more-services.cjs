@@ -29,7 +29,7 @@ module.exports = [
   },
   {
     slug:'sistemas-operativos',
-    name:['Sistemas operativos y documentales','Operations and document systems'],
+    name:['Gestión de operaciones y documentos','Operations and document management'],
     title:['Sistemas de operaciones y documentos en Venezuela | Nexora','Operations and document systems in Venezuela | Nexora'],
     description:['Sistemas a medida para operaciones, mantenimiento y documentos en Venezuela. Formularios, evidencia, firmas y reportes desde El Tigre, Anzoátegui.','Custom operations, maintenance and document systems in Venezuela. Forms, evidence, signatures and reports, from El Tigre, Anzoátegui.'],
     heading:['El trabajo en campo y su información, conectados.','Connected field work and records.'],

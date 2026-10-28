@@ -41,7 +41,7 @@ class Page(HTMLParser):
         if tag == 'script' and self.script is not None:
             self.jsonld.append(json.loads(self.script)); self.script = None
 
-files = [ROOT/'index.html',ROOT/'privacy.html',*sorted((ROOT/'proyectos').rglob('*.html')),*sorted((ROOT/'en').rglob('*.html'))]
+files = [ROOT/'index.html',ROOT/'privacy.html',*sorted((ROOT/'proyectos').rglob('*.html')),*sorted((ROOT/'servicios').rglob('*.html')),*sorted((ROOT/'en').rglob('*.html'))]
 pages = {f:Page(f) for f in files}
 for f,p in pages.items():
     rel = f.relative_to(ROOT).as_posix()
@@ -51,6 +51,12 @@ for f,p in pages.items():
     assert p.canonicals == [url], (rel,'canonical',p.canonicals,url)
     assert set(p.alternates) == {'es-VE','en','x-default'}, (rel,'hreflang')
     assert len(p.jsonld) == 1 and p.jsonld[0]['@graph'], (rel,'structured data')
+    if '/servicios/' in url and not url.endswith('/servicios/'):
+        services = [item for item in p.jsonld[0]['@graph'] if item.get('@type') == 'Service']
+        assert len(services) == 1 and services[0]['url'] == url, (rel, 'service URL')
+        assert services[0]['provider']['@id'] == ORIGIN+'/#organization', (rel, 'service provider')
+        assert {a['name'] for a in services[0]['areaServed']} == {'El Tigre','Anzoátegui','Venezuela'}, (rel, 'service coverage')
+        assert urlsplit(url).path in pages[ROOT/('en/index.html' if p.language=='en' else 'index.html')].refs, (rel, 'service missing from home')
     for ref in p.refs:
         u=urlsplit(ref)
         if u.scheme and (u.scheme not in ('http','https') or u.netloc != 'www.nexorasolutionsve.com'): continue

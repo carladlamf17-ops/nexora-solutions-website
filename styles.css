@@ -318,3 +318,20 @@
 .service-evidence .service-cases article h3{margin-bottom:25px}
 @media(max-width:900px){.home-offer-card{padding:28px}.home-offer-card h3{font-size:38px}.service-index-panel{padding:25px}}
 @media(max-width:650px){.home-offer-grid{grid-template-columns:1fr;gap:22px}.home-offer-card{padding:25px}.home-offer-card h3{font-size:36px}.home-offer-card>p:not(.eyebrow){font-size:16px}.home-offer-card .button{font-size:13px;gap:18px}.service-index-panel{box-shadow:6px 6px 0 #e8edf8}.service-index-panel h2{font-size:33px}.service-index-panel strong{font-size:17px}.directory-security-copy>p{font-size:17px}}
+
+.delivery-support{background:#f4f7fc;border-top:1px solid #e0e7f1;border-bottom:1px solid #e0e7f1}
+.delivery-support-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.delivery-card{padding:34px;background:#fff;border:1px solid #dde5f2;border-top:4px solid #3154ef;border-radius:14px}
+.delivery-card h3{font:800 40px/1.08 var(--heading);color:#1b2944;margin-bottom:28px}
+.delivery-card .eyebrow{font-size:10px}
+.delivery-card dl{margin:0}
+.delivery-card dl>div{border-top:1px solid #e5eaf3;padding:22px 0}
+.delivery-card dl>div:last-child{padding-bottom:0}
+.delivery-card dt{font-size:18px;color:#273958;font-weight:600;margin-bottom:9px}
+.delivery-card dd{font-size:16px;line-height:1.65;color:#61708a;margin:0}
+.support-card{border-top-color:#177c70;scroll-margin-top:120px}
+.support-card .eyebrow{color:#177466}
+.delivery-support-links{display:flex;flex-wrap:wrap;gap:15px 26px;margin-top:28px}
+.delivery-support-links a{font-size:15px;color:#3154ce;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.delivery-card{padding:28px}.delivery-card h3{font-size:36px}}
+@media(max-width:650px){.delivery-support-grid{grid-template-columns:1fr;gap:22px}.delivery-card{padding:25px}.delivery-card h3{font-size:34px}.delivery-card dt{font-size:17px}.delivery-card dd{font-size:15px}.support-card{scroll-margin-top:100px}.delivery-support-links{flex-direction:column;align-items:flex-start}.delivery-support-links a{font-size:14px}}

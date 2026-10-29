@@ -34,6 +34,8 @@ Las certificaciones personales Cisco CCNA y CyberOps y la formación académica 
 
 ## Organización de la información
 
+`tools/delivery-support.cjs` concentra en la portada, bajo `#entrega` y `#soporte`, la explicación de entregables de desarrollo, puesta en marcha, orientación al equipo, incidencias, mantenimiento y ampliaciones. Las páginas de desarrollo enlazan a esas secciones sin repetir su contenido. Las condiciones se remiten a la propuesta y al acuerdo de soporte; no se publican plazos, cobertura ni capacitación universalmente incluidos.
+
 El menú distingue **Servicios** (lo que puede contratar la empresa), **Portafolio** (proyectos ya desarrollados) y **Cómo trabajamos** (etapas del proyecto), con un acceso a Contacto. Ciberseguridad forma parte de Servicios, junto a Desarrollo de sistemas a medida. El directorio explica primero estas dos áreas; el desarrollo agrupa seis especialidades y enlaza a la página general de desarrollo a medida. La portada presenta servicios, portafolio, proceso y contacto en ese orden. No repite las preguntas frecuentes ni los listados completos de funciones de las páginas interiores. Las rutas existentes y sus canonical se conservan. Los títulos de las páginas de servicio distinguen necesidad, funciones y alcance; ciberseguridad utiliza títulos propios de una revisión de seguridad.
 
 ## SEO y publicación

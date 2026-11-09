@@ -15,7 +15,6 @@ const editions = [
     label: 'Revista de ciberseguridad', date: '9 de noviembre de 2026',
     title: 'Estafas digitales en Venezuela',
     coverTitle: ['Estafas digitales', 'en Venezuela'],
-    coverAlert: '¿Y si quien te escribe es un estafador?',
     coverAlt: 'Portada ilustrada de periódico: Alerta digital. ¡Te están estafando! Un celular, dólares y un recibo sellado como falso.',
     intro: 'Una oferta de dólares por WhatsApp, un comprobante falso o una supuesta citación pueden llegar al mismo teléfono. Aprende a reconocer las señales y qué hacer si ya respondiste.',
     contents: 'En esta edición', response: 'Si ya pagaste o compartiste datos',
@@ -38,7 +37,6 @@ const editions = [
     label: 'Cybersecurity magazine', date: 'November 9, 2026',
     title: 'Digital scams in Venezuela',
     coverTitle: ['Digital scams', 'in Venezuela'],
-    coverAlert: 'What if that message is from a scammer?',
     coverAlt: 'Illustrated Spanish tabloid cover reading “Digital alert: You’re being scammed!” with a phone, dollars, and a receipt stamped “Fake”.',
     intro: 'An offer to sell dollars over WhatsApp, a fake receipt, or a supposed police summons can all reach the same phone. Learn the warning signs and what to do if you already responded.',
     contents: 'In this issue', response: 'If you already paid or shared information',
@@ -69,7 +67,6 @@ function magazinePage(i, { head, header, footer, esc }) {
     <div class="wrap magazine-cover-layout">
       <div>
       <p class="eyebrow">${issue.label} · Nexora Solutions</p>
-      <p class="magazine-cover-alert">${esc(issue.coverAlert)}</p>
       <h1>${esc(issue.coverTitle[0])} <span>${esc(issue.coverTitle[1])}</span></h1>
       <p class="magazine-intro">${issue.intro}</p>
       <p class="magazine-edition">${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>

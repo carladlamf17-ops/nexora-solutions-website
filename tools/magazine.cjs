@@ -1,6 +1,7 @@
 const editionDate = '2026-11-09';
 const { phishingGuide } = require('./magazine-phishing.cjs');
 const { records } = require('./magazine-dossiers.cjs');
+const { exhibit } = require('./magazine-exhibits.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
 const dossierRoute = (i, id) => magazineRoute(i) + id + '/';
 const dossierIds = Object.keys(records);
@@ -82,33 +83,42 @@ const fieldNotes = [
   }
 ];
 
+const videoClips = i => [
+  {
+    id: 'video-whatsapp', story: 'dolares-whatsapp', asset: 'chat',
+    label: 'WhatsApp', title: i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'
+  },
+  {
+    id: 'video-pago-movil', story: 'pago-movil-falso', asset: 'pagomovil',
+    label: 'Pago Móvil', title: i ? 'Did the money actually arrive?' : '¿La plata sí cayó?'
+  },
+  {
+    id: 'video-cicpc', story: 'citaciones', asset: 'cicpc',
+    label: 'CICPC', title: i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'
+  },
+  {
+    id: 'video-phishing', story: 'guia-phishing', asset: 'phishing',
+    label: 'Phishing', title: i ? '“Your account will be locked”' : '«Tu cuenta se va a bloquear»'
+  },
+  {
+    id: 'video-ponzi', story: 'ponzi', asset: 'ponzi',
+    label: i ? 'Ponzi schemes' : 'Esquemas Ponzi',
+    title: i ? '“Double your money”' : '«Duplica tu plata»'
+  }
+];
+
+function newsVideo(i, asset, titleId) {
+  const lang = i ? 'en' : 'es';
+  return `<div class="magazine-phone">
+    <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-${asset}-${lang}.webp" aria-labelledby="${titleId}">
+      <source src="/assets/revista-noticiero-${asset}-${lang}.mp4" type="video/mp4">
+    </video>
+  </div>`;
+}
+
 function magazinePage(i, { head, header, footer, esc }) {
   const issue = editions[i];
   const issueLabel = i ? 'Issue 01' : 'Edición 01';
-  const lang = i ? 'en' : 'es';
-  const videoClips = [
-    {
-      id: 'video-whatsapp', story: 'dolares-whatsapp', asset: 'chat',
-      label: 'WhatsApp', title: i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'
-    },
-    {
-      id: 'video-pago-movil', story: 'pago-movil-falso', asset: 'pagomovil',
-      label: 'Pago Móvil', title: i ? 'Did the money actually arrive?' : '¿La plata sí cayó?'
-    },
-    {
-      id: 'video-cicpc', story: 'citaciones', asset: 'cicpc',
-      label: 'CICPC', title: i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'
-    },
-    {
-      id: 'video-phishing', story: 'guia-phishing', asset: 'phishing',
-      label: 'Phishing', title: i ? '“Your account will be locked”' : '«Tu cuenta se va a bloquear»'
-    },
-    {
-      id: 'video-ponzi', story: 'ponzi', asset: 'ponzi',
-      label: i ? 'Ponzi schemes' : 'Esquemas Ponzi',
-      title: i ? '“Double your money”' : '«Duplica tu plata»'
-    }
-  ];
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
   const items = [
     ['guia-phishing', i ? 'Phishing guide' : 'Guía de phishing'],
@@ -162,13 +172,9 @@ function magazinePage(i, { head, header, footer, esc }) {
       <p class="magazine-reels-intro">${i ? 'Five simulated scams with narration and captions.' : 'Cinco estafas simuladas con narración y subtítulos.'}</p>
       <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all five.' : 'Desliza para ver los cinco.'}</p>
       <div class="magazine-reels" role="region" aria-labelledby="magazine-reels-title" tabindex="0">
-        ${videoClips.map(({ id, story, asset, label, title }, n) => `<article class="magazine-news magazine-news-${asset}" id="${id}">
+        ${videoClips(i).map(({ id, story, asset, label, title }, n) => `<article class="magazine-news magazine-news-${asset}" id="${id}">
           <p class="eyebrow"><span aria-hidden="true">${String(n + 1).padStart(2, '0')} · </span>${esc(label)}</p>
-          <div class="magazine-phone">
-            <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-${asset}-${lang}.webp" aria-labelledby="${id}-title">
-              <source src="/assets/revista-noticiero-${asset}-${lang}.mp4" type="video/mp4">
-            </video>
-          </div>
+          ${newsVideo(i, asset, id + '-title')}
           <h3 id="${id}-title">${esc(title)}</h3>
           <a href="${dossierRoute(i, story)}">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
         </article>`).join('')}
@@ -246,6 +252,22 @@ function dossierPage(i, id, { head, header, footer, esc }) {
   const back = magazineRoute(i);
   const number = String(dossierIds.indexOf(id) + 1).padStart(2, '0');
   const compare = ([label, detail]) => `<div><h3>${esc(label)}</h3><p>${esc(detail)}</p></div>`;
+  const clip = videoClips(i).find(video => video.story === id);
+  const image = exhibit(i, id, esc);
+  const imageCaption = `${image.title}. ${image.label}.`;
+  const visual = `<section class="magazine-dossier-card magazine-dossier-sample">
+      <h2>${id === 'alertas-inversion' ? (i ? 'Timeline' : 'Cronología') : (i ? 'Simulated example' : 'Ejemplo simulado')}</h2>
+      <figure class="magazine-dossier-exhibit">
+        <a class="screen-open" href="${image.url}" data-caption="${esc(imageCaption)}" aria-label="${i ? 'Enlarge' : 'Ampliar'}: ${esc(image.title)}">
+          <img src="${image.url}" width="960" height="${image.height}" alt="${esc(imageCaption)}">
+          <span>${i ? 'Enlarge image' : 'Ampliar imagen'} <span aria-hidden="true">↗</span></span>
+        </a>
+        <figcaption>${esc(imageCaption)} <a href="${image.url}" target="_blank" rel="noopener">${i ? 'Open full-size file' : 'Abrir archivo a tamaño completo'}</a></figcaption>
+      </figure>
+      <details><summary>${i ? 'Read the text in the image' : 'Leer el texto de la imagen'}</summary>
+        <ul>${sample.map(line => `<li>${esc(line)}</li>`).join('')}</ul>
+      </details>
+    </section>`;
   return head(i, dossierRoute(i, id), `${title} | Nexora Solutions`, lead) + header(i, dossierRoute(1 - i, id)) + `
 <main id="contenido" class="magazine magazine-dossier">
   <header class="magazine-dossier-cover">
@@ -257,14 +279,18 @@ function dossierPage(i, id, { head, header, footer, esc }) {
     </div>
   </header>
   <div class="wrap magazine-dossier-body">
+    ${clip ? `<div class="magazine-dossier-media">
+      <section class="magazine-dossier-card magazine-dossier-video">
+        <h2 id="dossier-video-title">${i ? 'Video report' : 'Noticiero'}</h2>
+        <p>${esc(clip.title)} · ${i ? 'Simulated scenes' : 'Escenas simuladas'}</p>
+        ${newsVideo(i, clip.asset, 'dossier-video-title')}
+      </section>
+      ${visual}
+    </div>` : visual}
     <section class="magazine-dossier-card">
       <h2>${i ? 'What the sources document' : 'Qué documentan las fuentes'}</h2>
       <p>${esc(evidence)}</p>
       <ul class="magazine-sources">${[...references, ...additional].map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>
-    </section>
-    <section class="magazine-dossier-card magazine-dossier-sample">
-      <h2>${id === 'alertas-inversion' ? (i ? 'Timeline' : 'Cronología') : (i ? 'Fictional example' : 'Ejemplo ficticio')}</h2>
-      <ul>${sample.map(line => `<li>${esc(line)}</li>`).join('')}</ul>
     </section>
     <section class="magazine-dossier-card magazine-dossier-compare">
       <h2>${i ? 'Side-by-side comparison' : 'Comparación lado a lado'}</h2>
@@ -279,4 +305,4 @@ function dossierPage(i, id, { head, header, footer, esc }) {
 </main>` + footer(i) + '</body></html>';
 }
 
-module.exports = { editionDate, magazineRoute, magazinePage, dossierIds, dossierRoute, dossierPage };
+module.exports = { editionDate, magazineRoute, magazinePage, dossierIds, dossierRoute, dossierPage, exhibit };

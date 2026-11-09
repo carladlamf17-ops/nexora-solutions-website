@@ -158,7 +158,9 @@
   const dialog = document.querySelector('.screen-dialog');
   let opener;
   if(dialog && typeof dialog.showModal === 'function') {
-    document.querySelectorAll('.screen-open').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('.screen-open').forEach(button => button.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (button.matches('a')) event.preventDefault();
       opener = button;
       const source = button.querySelector('img');
       dialog.querySelector('img').src = source.src;

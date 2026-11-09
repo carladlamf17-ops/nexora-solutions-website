@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="577" viewBox="0 0 960 577" role="img" aria-labelledby="title">
+  <title id="title">Correo sospechoso — SIMULADO · EJEMPLO EDUCATIVO</title>
+  <rect width="960" height="577" fill="#f6f8fc"/>
+  <g font-family="system-ui, sans-serif">
+    <rect width="960" height="72" fill="#665421"/>
+    <text x="42" y="45" fill="#fff" font-size="24" font-weight="750">SIMULADO · EJEMPLO EDUCATIVO</text>
+    <text x="42" y="126" fill="#202636" font-size="38" font-weight="750">Correo sospechoso</text>
+    <g transform="translate(42 162)">
+      <rect width="876" height="73" rx="11" fill="#fff" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#665421"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">01</text>
+      <text x="85" y="43" fill="#202636" font-size="28">De: Banco Ejemplo &lt;avisos@acceso.example></text>
+    </g>
+<g transform="translate(42 249)">
+      <rect width="876" height="73" rx="11" fill="#eef1f7" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#665421"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">02</text>
+      <text x="85" y="43" fill="#202636" font-size="28">Responder a: soporte@tramite.example</text>
+    </g>
+<g transform="translate(42 336)">
+      <rect width="876" height="73" rx="11" fill="#fff" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#665421"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">03</text>
+      <text x="85" y="43" fill="#202636" font-size="28">Botón: Restablecer acceso</text>
+    </g>
+<g transform="translate(42 423)">
+      <rect width="876" height="110" rx="11" fill="#eef1f7" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#665421"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">04</text>
+      <text x="85" y="43" fill="#202636" font-size="28">Destino al pasar el cursor:</text><text x="85" y="80" fill="#202636" font-size="28">https://banco.acceso.example/validar</text>
+    </g>
+  </g>
+</svg>

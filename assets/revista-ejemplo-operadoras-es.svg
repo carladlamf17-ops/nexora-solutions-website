@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-labelledby="title">
+  <title id="title">Llamada y mensaje de verificación — SIMULADO · EJEMPLO EDUCATIVO</title>
+  <rect width="960" height="440" fill="#f6f8fc"/>
+  <g font-family="system-ui, sans-serif">
+    <rect width="960" height="72" fill="#24596b"/>
+    <text x="42" y="45" fill="#fff" font-size="24" font-weight="750">SIMULADO · EJEMPLO EDUCATIVO</text>
+    <text x="42" y="126" fill="#202636" font-size="38" font-weight="750">Llamada y mensaje de verificación</text>
+    <g transform="translate(42 162)">
+      <rect width="876" height="110" rx="11" fill="#fff" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#24596b"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">01</text>
+      <text x="85" y="43" fill="#202636" font-size="28">Llamada: «Para subir a 5G, dime el código que</text><text x="85" y="80" fill="#202636" font-size="28">te acaba de llegar»</text>
+    </g>
+<g transform="translate(42 286)">
+      <rect width="876" height="110" rx="11" fill="#eef1f7" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#24596b"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">02</text>
+      <text x="85" y="43" fill="#202636" font-size="28">SMS simulado: «Código de registro de WhatsApp.</text><text x="85" y="80" fill="#202636" font-size="28">No lo compartas»</text>
+    </g>
+  </g>
+</svg>

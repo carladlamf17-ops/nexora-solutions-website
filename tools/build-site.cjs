@@ -2,8 +2,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const origin = 'https://www.nexorasolutionsve.com';
-const version = '20261109-revista-indice-activo';
-const { editionDate, magazineRoute, magazinePage, dossierIds, dossierRoute, dossierPage } = require('./magazine.cjs');
+const version = '20261109-revista-pruebas-visuales';
+const { editionDate, magazineRoute, magazinePage, dossierIds, dossierRoute, dossierPage, exhibit } = require('./magazine.cjs');
 const address = 'Calle Democracia, casa N.º 53-41, sector La Charneca, parroquia El Tigre, municipio Simón Rodríguez, estado Anzoátegui, Venezuela.';
 const projects = require('./projects.cjs');
 const homeOffer = require('./home-offer.cjs');
@@ -32,7 +32,7 @@ function privacy(i){const t=text[i];const blocks=i?[
 const servicePages = require('./service-pages.cjs')({head,header,footer,contact,projects,route,origin,esc,arrow});
 const urls=[];
 function write(url,html){const file=path.join(root,url.endsWith('/')?url+'index.html':url);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,html);urls.push(url);}
-for(let i=0;i<2;i++){write(text[i].home,home(i));projects.forEach(p=>write(route(p,i),detail(p,i)));write(i?'/en/privacy.html':'/privacy.html',privacy(i));servicePages.services.forEach(s=>write(servicePages.serviceRoute(s,i),servicePages.page(s,i)));write(`${i?'/en':''}/servicios/`,servicePages.directory(i));write(magazineRoute(i),magazinePage(i,{head,header,footer,esc}));dossierIds.forEach(id=>write(dossierRoute(i,id),dossierPage(i,id,{head,header,footer,esc})));}
+for(let i=0;i<2;i++){write(text[i].home,home(i));projects.forEach(p=>write(route(p,i),detail(p,i)));write(i?'/en/privacy.html':'/privacy.html',privacy(i));servicePages.services.forEach(s=>write(servicePages.serviceRoute(s,i),servicePages.page(s,i)));write(`${i?'/en':''}/servicios/`,servicePages.directory(i));write(magazineRoute(i),magazinePage(i,{head,header,footer,esc}));dossierIds.forEach(id=>{const example=exhibit(i,id,esc);fs.writeFileSync(path.join(root,example.url),example.svg);write(dossierRoute(i,id),dossierPage(i,id,{head,header,footer,esc}));});}
 fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>`<url><loc>${origin+u}</loc><lastmod>${editionDate}</lastmod></url>`).join('\n')+'\n</urlset>\n');
 fs.writeFileSync(path.join(root,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Generated ${urls.length} static pages and sitemap.`);

@@ -862,3 +862,42 @@
 @media (max-width: 700px) {
   .magazine-dossier-body { grid-template-columns: 1fr; }
 }
+
+.magazine-dossier-media {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(14px, 2vw, 24px);
+}
+.magazine-dossier-video {
+  --chat-accent: #ffc1cf;
+  color: #f4faff;
+  background: linear-gradient(140deg, #142330ee, #34293db8), url('/assets/revista-chat-seguro.svg') 0 0 / 180px 146px, #26364a;
+}
+.magazine-dossier-video .magazine-phone { margin-inline: auto; }
+.magazine-dossier-exhibit { margin: 0 0 12px; }
+.magazine-dossier-exhibit .screen-open {
+  display: grid;
+  justify-items: stretch;
+  overflow: hidden;
+  border: 1px solid #c3ccdc;
+  border-radius: 9px;
+  color: #76122d;
+  background: #fff;
+  text-align: left;
+  text-decoration: none;
+}
+.magazine-dossier-exhibit img { display: block; width: 100%; height: auto; }
+.magazine-dossier-exhibit .screen-open > span {
+  padding: 8px 12px;
+  border-top: 1px solid #d7dce6;
+  font-size: .9em;
+  font-weight: 750;
+}
+.magazine-dossier-exhibit .screen-open:hover > span { background: #f2dce6; }
+.magazine-dossier-exhibit figcaption { margin-top: 7px; font-size: .84em; color: #454e62; }
+.magazine-dossier-sample summary { cursor: pointer; color: #76122d; font-weight: 700; }
+@media (max-width: 700px) {
+  .magazine-dossier-media { grid-template-columns: minmax(0, 1fr); }
+}

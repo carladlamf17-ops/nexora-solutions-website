@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="688" viewBox="0 0 960 688" role="img" aria-labelledby="title">
+  <title id="title">Timeline of cases and warnings — EDITORIAL TIMELINE · BASED ON CITED SOURCES</title>
+  <rect width="960" height="688" fill="#f6f8fc"/>
+  <g font-family="system-ui, sans-serif">
+    <rect width="960" height="72" fill="#39566e"/>
+    <text x="42" y="45" fill="#fff" font-size="24" font-weight="750">EDITORIAL TIMELINE · BASED ON CITED SOURCES</text>
+    <text x="42" y="126" fill="#202636" font-size="38" font-weight="750">Timeline of cases and warnings</text>
+    <g transform="translate(42 162)">
+      <rect width="876" height="110" rx="11" fill="#fff" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#39566e"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">01</text>
+      <text x="85" y="43" fill="#202636" font-size="28">2024 · SolesBot: Unión Radio reported that</text><text x="85" y="80" fill="#202636" font-size="28">operations stopped after complaints.</text>
+    </g>
+<g transform="translate(42 286)">
+      <rect width="876" height="110" rx="11" fill="#eef1f7" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#39566e"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">02</text>
+      <text x="85" y="43" fill="#202636" font-size="28">2024 · Hyper AI: BeInCrypto reported users’</text><text x="85" y="80" fill="#202636" font-size="28">allegations of a suspected Ponzi.</text>
+    </g>
+<g transform="translate(42 410)">
+      <rect width="876" height="110" rx="11" fill="#fff" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#39566e"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">03</text>
+      <text x="85" y="43" fill="#202636" font-size="28">2025 · HV IJEX: El Estímulo reported the</text><text x="85" y="80" fill="#202636" font-size="28">collapse.</text>
+    </g>
+<g transform="translate(42 534)">
+      <rect width="876" height="110" rx="11" fill="#eef1f7" stroke="#ccd4e1"/>
+      <rect x="18" y="15" width="48" height="43" rx="8" fill="#39566e"/>
+      <text x="42" y="44" text-anchor="middle" fill="#fff" font-size="21" font-weight="700">04</text>
+      <text x="85" y="43" fill="#202636" font-size="28">2026 · Sunaval: warning about the pattern</text><text x="85" y="80" fill="#202636" font-size="28">without naming platforms.</text>
+    </g>
+  </g>
+</svg>

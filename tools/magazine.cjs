@@ -16,7 +16,7 @@ const editions = [
     title: 'Estafas digitales en Venezuela',
     coverTitle: ['Estafas digitales', 'en Venezuela'],
     coverAlert: '¿Y si quien te escribe es un estafador?',
-    coverAlt: 'Ilustración de un celular con chats, dólares, un recibo y una señal ámbar de alerta',
+    coverAlt: 'Portada ilustrada de periódico: Alerta digital. ¡Te están estafando! Un celular, dólares y un recibo sellado como falso.',
     intro: 'Una oferta de dólares por WhatsApp, un comprobante falso o una supuesta citación pueden llegar al mismo teléfono. Aprende a reconocer las señales y qué hacer si ya respondiste.',
     contents: 'En esta edición', response: 'Si ya pagaste o compartiste datos',
     topics: [
@@ -39,7 +39,7 @@ const editions = [
     title: 'Digital scams in Venezuela',
     coverTitle: ['Digital scams', 'in Venezuela'],
     coverAlert: 'What if that message is from a scammer?',
-    coverAlt: 'Illustration of a phone with chat bubbles, dollar bills, a receipt, and a amber warning sign',
+    coverAlt: 'Illustrated Spanish tabloid cover reading “Digital alert: You’re being scammed!” with a phone, dollars, and a receipt stamped “Fake”.',
     intro: 'An offer to sell dollars over WhatsApp, a fake receipt, or a supposed police summons can all reach the same phone. Learn the warning signs and what to do if you already responded.',
     contents: 'In this issue', response: 'If you already paid or shared information',
     topics: [
@@ -74,7 +74,7 @@ function magazinePage(i, { head, header, footer, esc }) {
       <p class="magazine-intro">${issue.intro}</p>
       <p class="magazine-edition">${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>
       </div>
-      <img class="magazine-cover-image" src="/assets/revista-alerta-whatsapp.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
+      <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
     </div>
   </div>
   <div class="wrap magazine-layout">

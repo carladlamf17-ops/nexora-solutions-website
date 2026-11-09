@@ -1,6 +1,9 @@
 const editionDate = '2026-11-09';
 const { phishingGuide } = require('./magazine-phishing.cjs');
+const { records } = require('./magazine-dossiers.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
+const dossierRoute = (i, id) => magazineRoute(i) + id + '/';
+const dossierIds = Object.keys(records);
 const sources = {
   ponzi: 'https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme',
   tasks: 'https://consumidor.ftc.gov/alertas-para-consumidores/2025/08/como-detectar-y-evitar-las-estafas-de-tareas',
@@ -167,7 +170,7 @@ function magazinePage(i, { head, header, footer, esc }) {
             </video>
           </div>
           <h3 id="${id}-title">${esc(title)}</h3>
-          <a href="#${story}">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+          <a href="${dossierRoute(i, story)}">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
         </article>`).join('')}
       </div>
     </div>
@@ -175,34 +178,38 @@ function magazinePage(i, { head, header, footer, esc }) {
   <div class="wrap magazine-layout" id="casos">
     <nav class="magazine-index" aria-label="${issue.contents}">
       <div class="magazine-index-head">
-        <p class="eyebrow">${i ? 'Reading guide' : 'Guía de lectura'}</p>
-        <h2>${issue.contents}</h2>
+        <div>
+          <p class="eyebrow">${i ? 'Reading guide' : 'Guía de lectura'}</p>
+          <h2>${issue.contents}</h2>
+          <p class="magazine-index-current" hidden></p>
+        </div>
+        <button class="magazine-index-toggle" type="button" aria-expanded="true" aria-controls="magazine-index-body" hidden>${i ? 'Contents' : 'Índice'} <span aria-hidden="true">⌄</span></button>
       </div>
-      <ol>${items.map(([id, title], n) => `<li><a href="#${id}"><span aria-hidden="true">${String(n + 1).padStart(2, '0')}</span>${esc(title)}</a></li>`).join('')}</ol>
-      <div class="magazine-index-actions">
-        <a href="#respuesta">${i ? 'I already shared money or data' : 'Ya pagué o compartí datos'}</a>
-        <a href="#magazine-reels-title">${i ? 'Back to videos' : 'Volver a los videos'} <span aria-hidden="true">↑</span></a>
+      <div id="magazine-index-body">
+        <ol>${items.map(([id, title], n) => `<li><a href="${dossierRoute(i, id)}" data-magazine-section="${id}"><span aria-hidden="true">${String(n + 1).padStart(2, '0')}</span><strong>${esc(title)}</strong></a></li>`).join('')}</ol>
+        <div class="magazine-index-actions">
+          <a href="#respuesta">${i ? 'I already shared money or data' : 'Ya pagué o compartí datos'}</a>
+          <a href="#magazine-reels-title">${i ? 'Back to videos' : 'Volver a los videos'} <span aria-hidden="true">↑</span></a>
+        </div>
       </div>
     </nav>
     <div class="magazine-stories">
-      ${phishingGuide(i, esc)}
+      ${phishingGuide(i, esc, dossierRoute(i, 'guia-phishing'))}
       ${issue.topics.map(([id, title, detail, prevention, references = []], n) => `<article id="${id}">
         <p class="magazine-story-number" aria-hidden="true">${String(n + 2).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>
         <p>${esc(detail)}</p>
-${id === 'pago-movil-falso' ? `        <picture class="magazine-media-alert">
-          <source media="(prefers-reduced-motion: reduce)" srcset="/assets/revista-alerta-${lang}.webp">
-          <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
-        </picture>` : ''}
 ${id === 'citaciones' ? `        <p><a href="#video-cicpc">${i ? 'Watch the CICPC news clip' : 'Ver el noticiero sobre falsas citaciones'}</a></p>` : ''}
         <div class="magazine-story-advice">
 ${fieldNotes[i][id] ? `          <div class="magazine-evidence"><h3>${esc(fieldNotes[i][id][0])}</h3><p>${esc(fieldNotes[i][id][1])}</p></div>` : ''}
           <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>
         </div>
+        <p><a class="magazine-dossier-link" href="${dossierRoute(i, id)}">${i ? 'Open the full report' : 'Abrir el reportaje completo'} <span aria-hidden="true">→</span></a></p>
 ${references.length ? `        <ul class="magazine-sources">${references.map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>` : ''}
       </article>`).join('')}
       <article id="alertas-inversion">
         <h2>${investmentTitle}</h2>
+        <p><a class="magazine-dossier-link" href="${dossierRoute(i, 'alertas-inversion')}">${i ? 'Open the full report' : 'Abrir el reportaje completo'} <span aria-hidden="true">→</span></a></p>
         <p>${i ? 'On October 30, 2026, Venevisión reported that Venezuela’s securities regulator, Sunaval, warned about misleading investment offers promoted on WhatsApp, Telegram and other digital channels. The published warning describes the tactics without naming specific platforms.' : 'El 30 de octubre de 2026, Venevisión recogió una alerta de Sunaval sobre ofertas engañosas de inversión difundidas por WhatsApp, Telegram y otros canales digitales. El aviso publicado describe la modalidad sin identificar plataformas por nombre.'} <a href="${investmentSources[0]}">${i ? 'Read the warning' : 'Leer la alerta'}</a></p>
         <div class="magazine-evidence">
           <h3>${i ? 'Cases previously reported in Venezuela' : 'Casos reportados anteriormente en Venezuela'}</h3>
@@ -224,4 +231,52 @@ ${references.length ? `        <ul class="magazine-sources">${references.map(([l
 </main>` + footer(i) + '</body></html>';
 }
 
-module.exports = { editionDate, magazineRoute, magazinePage };
+function dossierPage(i, id, { head, header, footer, esc }) {
+  const record = records[id];
+  const [title, lead, evidence, sample, observed, verified, steps] = i ? record.en : record.es;
+  const topic = editions[i].topics.find(([key]) => key === id);
+  const investmentLabels = [
+    i ? 'Sunaval warning · Venevisión' : 'Alerta de Sunaval · Venevisión',
+    'SolesBot · Unión Radio', 'Hyper AI · BeInCrypto', 'HV IJEX · El Estímulo'
+  ];
+  const references = record.refs || topic?.[4] || investmentSources.map((url, n) => [investmentLabels[n], url]);
+  const additional = ['dolares-whatsapp', 'operadoras'].includes(id)
+    ? [[i ? 'WhatsApp · Account recovery' : 'WhatsApp · Recuperación de la cuenta', sources.whatsapp]]
+    : [];
+  const back = magazineRoute(i);
+  const number = String(dossierIds.indexOf(id) + 1).padStart(2, '0');
+  const compare = ([label, detail]) => `<div><h3>${esc(label)}</h3><p>${esc(detail)}</p></div>`;
+  return head(i, dossierRoute(i, id), `${title} | Nexora Solutions`, lead) + header(i, dossierRoute(1 - i, id)) + `
+<main id="contenido" class="magazine magazine-dossier">
+  <header class="magazine-dossier-cover">
+    <div class="wrap">
+      <a href="${back}#casos">← ${i ? 'Back to the magazine' : 'Volver a la revista'}</a>
+      <p class="eyebrow">${i ? 'Special report' : 'Reportaje'} · ${number} / ${i ? 'Issue 01' : 'Edición 01'}</p>
+      <h1>${esc(title)}</h1>
+      <p>${esc(lead)}</p>
+    </div>
+  </header>
+  <div class="wrap magazine-dossier-body">
+    <section class="magazine-dossier-card">
+      <h2>${i ? 'What the sources document' : 'Qué documentan las fuentes'}</h2>
+      <p>${esc(evidence)}</p>
+      <ul class="magazine-sources">${[...references, ...additional].map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>
+    </section>
+    <section class="magazine-dossier-card magazine-dossier-sample">
+      <h2>${id === 'alertas-inversion' ? (i ? 'Timeline' : 'Cronología') : (i ? 'Fictional example' : 'Ejemplo ficticio')}</h2>
+      <ul>${sample.map(line => `<li>${esc(line)}</li>`).join('')}</ul>
+    </section>
+    <section class="magazine-dossier-card magazine-dossier-compare">
+      <h2>${i ? 'Side-by-side comparison' : 'Comparación lado a lado'}</h2>
+      <div>${compare(observed)}${compare(verified)}</div>
+    </section>
+    <section class="magazine-dossier-card">
+      <h2>${i ? 'What to do, step by step' : 'Qué hacer, paso a paso'}</h2>
+      <ol>${steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>
+      <p><a href="${back}#${id}">${id === 'guia-phishing' ? (i ? 'Practice with eight links' : 'Practica con los ocho enlaces') : (i ? 'See the topic in the magazine' : 'Ver el tema en la revista')}</a></p>
+    </section>
+  </div>
+</main>` + footer(i) + '</body></html>';
+}
+
+module.exports = { editionDate, magazineRoute, magazinePage, dossierIds, dossierRoute, dossierPage };

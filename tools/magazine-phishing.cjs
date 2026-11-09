@@ -58,12 +58,13 @@ const guides = [
   }
 ];
 
-function phishingGuide(i, esc) {
+function phishingGuide(i, esc, reportUrl) {
   const g = guides[i];
   const list = items => `<ol>${items.map(([title, detail]) => `<li><strong>${esc(title)}</strong> ${esc(detail)}</li>`).join('')}</ol>`;
   return `<article id="guia-phishing" class="magazine-phishing">
     <h2>${esc(g.title)}</h2>
     <p>${esc(g.intro)}</p>
+    <p><a class="magazine-dossier-link" href="${esc(reportUrl)}">${i ? 'Open the full report' : 'Abrir el reportaje completo'} <span aria-hidden="true">→</span></a></p>
     <h3>${esc(g.headings[0])}</h3>
     ${list(g.linkSteps)}
     <div class="magazine-evidence">

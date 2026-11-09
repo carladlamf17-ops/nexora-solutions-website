@@ -92,6 +92,62 @@
       coverSheet.classList.add('magazine-cover-playing');
     });
   }
+  const magazineIndex = document.querySelector('.magazine-index');
+  if (magazineIndex) {
+    const toggle = magazineIndex.querySelector('.magazine-index-toggle');
+    const indexBody = magazineIndex.querySelector('#magazine-index-body');
+    const currentLabel = magazineIndex.querySelector('.magazine-index-current');
+    const indexHead = magazineIndex.querySelector('.magazine-index-head');
+    const mobile = matchMedia('(max-width: 850px)');
+    const entries = [...indexBody.querySelectorAll('ol a, a[href="#respuesta"]')]
+      .map(link => ({link, article: document.getElementById(link.dataset.magazineSection || link.hash.slice(1))}));
+    let active;
+    let frame;
+    function updateReadingIndex() {
+      frame = undefined;
+      const offset = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      const readingLine = offset + (mobile.matches ? indexHead.offsetHeight : 0) + 20;
+      let next;
+      for (const entry of entries) {
+        if (entry.article.getBoundingClientRect().top > readingLine) break;
+        next = entry.link;
+      }
+      if (next === active) return;
+      active?.removeAttribute('aria-current');
+      active = next;
+      active?.setAttribute('aria-current', 'location');
+      currentLabel.textContent = active ? (active.querySelector('strong') || active).textContent.trim() : '';
+      currentLabel.hidden = !active;
+    }
+    function queueIndexUpdate() {
+      if (frame === undefined) frame = requestAnimationFrame(updateReadingIndex);
+    }
+    function setIndexExpanded(expanded) {
+      indexBody.hidden = !expanded;
+      toggle.setAttribute('aria-expanded', String(expanded));
+      queueIndexUpdate();
+    }
+    function syncIndexLayout() {
+      if (!mobile.matches && document.activeElement === toggle) entries[0].link.focus();
+      toggle.hidden = !mobile.matches;
+      if (mobile.matches && indexBody.contains(document.activeElement)) toggle.focus({preventScroll: true});
+      setIndexExpanded(!mobile.matches);
+    }
+    magazineIndex.classList.add('magazine-index-ready');
+    toggle.addEventListener('click', () => setIndexExpanded(indexBody.hidden));
+    indexBody.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!mobile.matches || !link?.hash || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      toggle.focus({preventScroll: true});
+      setIndexExpanded(false);
+    });
+    mobile.addEventListener('change', syncIndexLayout);
+    window.addEventListener('scroll', queueIndexUpdate, {passive: true});
+    window.addEventListener('resize', queueIndexUpdate);
+    window.addEventListener('hashchange', queueIndexUpdate);
+    window.addEventListener('load', queueIndexUpdate, {once: true});
+    syncIndexLayout();
+  }
   if('IntersectionObserver' in window && !reduced.matches){
     body.classList.add('motion-ready');
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {

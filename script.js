@@ -84,12 +84,12 @@
   applyMotion();
   const coverReplay = document.querySelector('.magazine-replay');
   if (coverReplay) {
-    const coverAction = coverReplay.previousElementSibling;
+    const coverSheet = coverReplay.previousElementSibling;
     coverReplay.hidden = false;
     coverReplay.addEventListener('click', () => {
-      coverAction.classList.remove('magazine-cover-action');
-      void coverAction.offsetWidth;
-      coverAction.classList.add('magazine-cover-action');
+      coverSheet.classList.remove('magazine-cover-playing');
+      void coverSheet.offsetWidth;
+      coverSheet.classList.add('magazine-cover-playing');
     });
   }
   if('IntersectionObserver' in window && !reduced.matches){

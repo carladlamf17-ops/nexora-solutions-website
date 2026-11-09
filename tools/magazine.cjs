@@ -9,6 +9,12 @@ const sources = {
   dollars: 'https://noticiasvenevision.com/noticias/nacional/cicpc-alerto-sobre-modus-operandi-para-evitar-estafas-via-whatsapp',
   mobilePayment: 'https://www.banesco.com/personas/banca-digital-personas/pagomovil/'
 };
+const investmentSources = [
+  'https://noticiasvenevision.com/noticias/economia/sunaval-alerta-sobre-posibles-fraudes-electronicos-en-el-mercado-de-valores-venezolano',
+  'https://mundour.com/2024/06/19/5-claves-para-entender-la-estafa-detras-de-solesbot/',
+  'https://es.beincrypto.com/hyper-ai-alertan-nuevo-fraude-criptomonedas-venezuela/',
+  'https://elestimulo.com/elinteres/de-interes/2025-04-15/hv-ijex-venezuela/'
+];
 
 const editions = [
   {
@@ -77,7 +83,8 @@ function magazinePage(i, { head, header, footer, esc }) {
   const issueLabel = i ? 'Issue 01' : 'Edición 01';
   const lang = i ? 'en' : 'es';
   const videoTitle = i ? 'How to verify a Pago Móvil payment' : 'Cómo verificar un Pago Móvil';
-  const items = [...issue.topics.map(([id, title]) => [id, title]), ['respuesta', issue.response]];
+  const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
+  const items = [...issue.topics.map(([id, title]) => [id, title]), ['alertas-inversion', investmentTitle], ['respuesta', issue.response]];
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
 <main id="contenido" class="magazine">
   <div class="magazine-cover">
@@ -96,13 +103,13 @@ function magazinePage(i, { head, header, footer, esc }) {
       </div>
       </div>
       <div class="magazine-cover-art">
-        <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
-        <div class="magazine-cover-action" aria-hidden="true">
-          <span class="magazine-cover-phone"></span>
-          <span class="magazine-cover-message">•••</span>
-          <span class="magazine-cover-message">•••</span>
-          <span class="magazine-cover-paper"></span>
-          <span class="magazine-cover-stamp"></span>
+        <div class="magazine-cover-sheet magazine-cover-playing">
+          <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
+          <div class="magazine-cover-action" aria-hidden="true">
+            <span class="magazine-cover-message">•••</span>
+            <span class="magazine-cover-message">•••</span>
+            <span class="magazine-cover-stamp"></span>
+          </div>
         </div>
         <button class="magazine-replay" type="button" hidden>${i ? 'Replay cover animation' : 'Repetir animación de portada'}</button>
       </div>
@@ -140,6 +147,17 @@ function magazinePage(i, { head, header, footer, esc }) {
           <source src="/assets/revista-noticiero-pagomovil-${lang}.mp4" type="video/mp4">
       </video>
     </div>
+    <div class="wrap magazine-news magazine-news-citations" id="video-cicpc">
+      <div>
+        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
+        <h2 id="magazine-cicpc-title">${i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'}</h2>
+        <p>${i ? 'See how a fake summons turns into a demand for money and how to check it with the relevant CICPC office. Includes narration and on-screen captions.' : 'Mira cómo una citación simulada se convierte en una exigencia de dinero y cómo verificarla con la dependencia del CICPC. Con voz venezolana y subtítulos.'}</p>
+        <a href="#citaciones">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+      </div>
+      <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-cicpc-${lang}.webp" aria-labelledby="magazine-cicpc-title">
+        <source src="/assets/revista-noticiero-cicpc-${lang}.mp4" type="video/mp4">
+      </video>
+    </div>
   </section>
   <div class="wrap magazine-layout" id="casos">
     <nav class="magazine-index" aria-label="${issue.contents}">
@@ -151,10 +169,24 @@ function magazinePage(i, { head, header, footer, esc }) {
         <p class="magazine-story-number" aria-hidden="true">${String(n + 1).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>
         <p>${esc(detail)}</p>
+${id === 'citaciones' ? `        <p><a href="#video-cicpc">${i ? 'Watch the CICPC news clip' : 'Ver el noticiero sobre falsas citaciones'}</a></p>` : ''}
 ${fieldNotes[i][id] ? `        <div class="magazine-evidence"><h3>${esc(fieldNotes[i][id][0])}</h3><p>${esc(fieldNotes[i][id][1])}</p></div>` : ''}
         <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>
 ${references.length ? `        <ul class="magazine-sources">${references.map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>` : ''}
       </article>`).join('')}
+      <article id="alertas-inversion">
+        <h2>${investmentTitle}</h2>
+        <p>${i ? 'On October 30, 2026, Venevisión reported that Venezuela’s securities regulator, Sunaval, warned about misleading investment offers promoted on WhatsApp, Telegram and other digital channels. The published warning describes the tactics without naming specific platforms.' : 'El 30 de octubre de 2026, Venevisión recogió una alerta de Sunaval sobre ofertas engañosas de inversión difundidas por WhatsApp, Telegram y otros canales digitales. El aviso publicado describe la modalidad sin identificar plataformas por nombre.'} <a href="${investmentSources[0]}">${i ? 'Read the warning' : 'Leer la alerta'}</a></p>
+        <div class="magazine-evidence">
+          <h3>${i ? 'Cases previously reported in Venezuela' : 'Casos reportados anteriormente en Venezuela'}</h3>
+          <ul>
+            <li><strong>SolesBot · 2024.</strong> ${i ? 'Unión Radio reported that operations stopped after fraud complaints. A specialist interviewed by the station described the model as a Ponzi scheme.' : 'Unión Radio reportó el cese de operaciones tras denuncias de estafa. Un especialista entrevistado por la emisora describió el modelo como un esquema Ponzi.'} <a href="${investmentSources[1]}">Unión Radio</a></li>
+            <li><strong>Hyper AI · 2024.</strong> ${i ? 'Venezuelan users reported problems and a lack of transparency in what BeInCrypto covered as a suspected Ponzi scheme.' : 'Usuarios venezolanos reportaron problemas y falta de transparencia. BeInCrypto cubrió el caso como un presunto esquema Ponzi.'} <a href="${investmentSources[2]}">BeInCrypto</a></li>
+            <li><strong>HV IJEX · 2025.</strong> ${i ? 'El Estímulo reported the collapse of the platform after it drew users in Venezuela.' : 'El Estímulo documentó el colapso de la plataforma tras captar usuarios en Venezuela.'} <a href="${investmentSources[3]}">El Estímulo</a></li>
+          </ul>
+          <p>${i ? 'These reports concern past cases. We found no confirmation that those three platforms were still recruiting in Venezuela in November 2026.' : 'Estos reportes corresponden a casos históricos. No encontramos confirmación de que esas tres plataformas siguieran captando usuarios en Venezuela en noviembre de 2026.'}</p>
+        </div>
+      </article>
       <section class="magazine-response" id="respuesta">
         <h2>${issue.response}</h2>
         <ol>${issue.steps.map(([label, detail]) => `<li><strong>${esc(label)}</strong><p>${esc(detail)}</p></li>`).join('')}</ol>

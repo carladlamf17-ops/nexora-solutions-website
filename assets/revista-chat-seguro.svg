@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 146" fill="none" stroke="#b4eadb" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+  <path opacity=".22" d="M18 19h24a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5H29l-9 7v-7h-2a5 5 0 0 1-5-5V24a5 5 0 0 1 5-5Z M23 29h14m-14 5h9"/>
+  <path opacity=".29" d="M105 13c5 4 10 5 14 5v12c0 9-9 15-14 17-5-2-14-8-14-17V18c4 0 9-1 14-5Zm-5 16 4 4 7-8"/>
+  <path opacity=".22" d="M147 64h19v16h-19z M151 64v-4a5.5 5.5 0 0 1 11 0v4 M157 70v4"/>
+  <path opacity=".26" d="m45 109 12-22 12 22H45Zm12-14v6m0 4v.5"/>
+  <circle opacity=".25" cx="115" cy="115" r="9"/>
+  <path opacity=".25" d="m122 122 7 7m-20-14h12m-6-6v12M8 75v6m-3-3h6m68-17v6m-3-3h6m83 53v6m-3-3h6"/>
+</svg>

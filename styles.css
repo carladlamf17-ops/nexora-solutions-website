@@ -484,25 +484,12 @@
 }
 
 .magazine-cover-art { position: relative; }
+.magazine-cover-sheet { position: relative; }
+.magazine-cover-playing { animation: magazine-sheet-shift 1.45s .1s ease-in-out; }
 .magazine-cover-action {
   position: absolute;
   inset: 1px;
-  overflow: hidden;
-  border-radius: 4px;
   pointer-events: none;
-}
-.magazine-cover-phone, .magazine-cover-paper, .magazine-cover-stamp {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-.magazine-cover-phone, .magazine-cover-stamp {
-  background: url('/assets/revista-portada-periodico.webp') center / 100% 100% no-repeat;
-}
-.magazine-cover-phone {
-  clip-path: polygon(26% 69%, 27% 64%, 43% 55%, 49% 54%, 53% 57%, 57% 67%, 61% 81%, 55% 88%, 48% 87%, 35% 83%);
-  transform-origin: 45% 76%;
-  animation: magazine-phone 1.4s .15s ease-in-out;
 }
 .magazine-cover-message {
   position: absolute;
@@ -516,28 +503,29 @@
   font: 800 clamp(12px, 2vw, 24px)/1.1 Barlow, sans-serif;
   box-shadow: 0 3px 12px #002c25b0;
   opacity: 0;
-  animation: magazine-message 1.45s .85s ease-out;
+  animation: none;
 }
-.magazine-cover-message + .magazine-cover-message {
+.magazine-cover-playing .magazine-cover-message { animation: magazine-message 1.45s .85s ease-out; }
+.magazine-cover-playing .magazine-cover-message + .magazine-cover-message {
   left: 52%;
   animation-delay: 1.15s;
 }
-.magazine-cover-paper, .magazine-cover-stamp {
-  clip-path: polygon(64.4% 79.2%, 92.1% 67.9%, 96% 83.5%, 68.9% 95%);
-}
-.magazine-cover-paper {
-  background: repeating-linear-gradient(12deg, #eceef3 0 2px, #dfe3eb 2px 4px);
-  animation: magazine-paper 3.5s step-end;
-}
 .magazine-cover-stamp {
-  transform-origin: 80% 81%;
-  animation: magazine-stamp .85s 2.65s cubic-bezier(.2,.8,.32,1);
+  position: absolute;
+  left: 67%;
+  top: 73%;
+  width: 29%;
+  height: 16%;
+  border: 3px solid #ed282f;
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px #ed282f55, 0 0 25px #a90018a0;
+  opacity: 0;
 }
-@keyframes magazine-phone {
-  0%, 100% { opacity: 0; transform: none; }
-  12%, 86% { opacity: 1; transform: none; }
-  42% { opacity: 1; transform: translate(-1%, -1.4%) rotate(-4deg); }
-  64% { opacity: 1; transform: translate(.3%, -.5%) rotate(2deg); }
+.magazine-cover-playing .magazine-cover-stamp { animation: magazine-stamp .65s 2.35s ease-out; }
+@keyframes magazine-sheet-shift {
+  0%, 100% { transform: none; }
+  35% { transform: translateY(-4px) rotate(-.8deg); }
+  65% { transform: translateY(2px) rotate(.5deg); }
 }
 @keyframes magazine-message {
   0% { opacity: 0; transform: scale(.5); }
@@ -545,16 +533,13 @@
   65% { opacity: 1; transform: translateY(-125%) rotate(-5deg); }
   100% { opacity: 0; transform: translateY(-215%) rotate(-8deg); }
 }
-@keyframes magazine-paper {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
 @keyframes magazine-stamp {
-  0% { opacity: 0; transform: scale(1.65) rotate(12deg); }
-  30% { opacity: 1; transform: scale(.96) rotate(-2deg); }
-  58%, 100% { opacity: 1; transform: none; }
+  0% { opacity: 0; transform: rotate(-15deg) scale(1.36); }
+  25% { opacity: 1; transform: rotate(-15deg) scale(.98); }
+  100% { opacity: 0; transform: rotate(-15deg) scale(1.06); }
 }
 .motion-paused .magazine-cover-action { display: none; }
+.motion-paused .magazine-cover-playing { animation: none; }
 
 .magazine-replay {
   position: absolute;
@@ -573,23 +558,38 @@
   .magazine-cover-action, .magazine-replay { display: none; }
 }
 .magazine-news {
+  --chat-accent: #8cf2c8;
+  --chat-color: #153630;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
   align-items: center;
   gap: clamp(20px, 5vw, 65px);
-  margin-bottom: clamp(36px, 6vw, 72px);
+  margin-bottom: clamp(24px, 4vw, 48px);
   padding: clamp(20px, 4vw, 50px);
-  border-top: 5px solid #d63437;
-  border-radius: 12px;
-  background: #21242c;
-  color: #f9faff;
+  border: 1px solid #819a9660;
+  border-top: 5px solid var(--chat-accent);
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, #0c1825e8, #0c18252b 90%),
+    url('/assets/revista-chat-seguro.svg') 0 0 / 180px 146px,
+    var(--chat-color);
+  color: #f4faff;
+  box-shadow: 0 12px 28px #16242d1c;
 }
-.magazine-news .eyebrow, .magazine-news a { color: #ffd24f; }
-.magazine-news a:hover { color: #f9faff; }
+.magazine-news-payment { --chat-accent: #9cd9ff; --chat-color: #1b3b55; }
+.magazine-news-citations {
+  --chat-accent: #ffc1cf;
+  --chat-color: #56304c;
+  margin-bottom: 0;
+}
+.magazine-news .eyebrow, .magazine-news a { color: var(--chat-accent); }
+.magazine-news a:hover { color: #fff; }
 .magazine-media .magazine-news-video {
   max-width: 275px;
   justify-self: center;
   aspect-ratio: 9 / 16;
+  border: 2px solid var(--chat-accent);
+  box-shadow: 0 12px 38px #040c17b0;
 }
 @media (max-width: 650px) {
   .magazine-news { grid-template-columns: minmax(0, 1fr); }
@@ -627,7 +627,6 @@
   .magazine-cover-topics a { padding: 4px 0; }
 }
 
-.magazine-news-payment { margin-bottom: 0; }
 .magazine-news-payment .magazine-media-alert { max-width: 320px; margin-top: 20px; }
 .magazine-evidence {
   margin-block: 18px;

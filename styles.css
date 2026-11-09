@@ -652,3 +652,18 @@
 .magazine-phishing details:first-of-type { margin-top: 12px; }
 .magazine-phishing summary { cursor: pointer; color: #632037; overflow-wrap: anywhere; }
 .magazine-phishing details p { padding-inline-start: 16px; }
+
+.magazine-url-case summary {
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: #f2f4f8;
+}
+.magazine-url-case summary:hover { background: #e8edf5; }
+.magazine-url-case summary code { display: block; padding-left: 2.35em; color: #292f40; }
+.magazine-url-number { margin-inline: 6px 9px; color: #8b1731; font-weight: 800; }
+.magazine-url-breakdown { padding: 12px 10px 2px; overflow-wrap: anywhere; }
+.magazine-url-breakdown > p { padding: 0; }
+.magazine-url-breakdown mark { padding-inline: 2px; background: #ffdf68; color: #201609; }
+.magazine-url-breakdown dl { margin-bottom: 8px; }
+.magazine-url-breakdown dt { margin-top: 10px; color: #8b1731; font-weight: 800; }
+.magazine-url-breakdown dd { margin-inline-start: 0; }

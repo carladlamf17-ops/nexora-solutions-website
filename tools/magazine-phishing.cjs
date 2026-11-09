@@ -1,8 +1,12 @@
+const { urlCases } = require('./magazine-url-cases.cjs');
+
 const links = {
   cisa: 'https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-Phishing-Tip-Sheet.pdf',
   gmail: 'https://support.google.com/mail/answer/8253?hl=es',
   authentication: 'https://support.google.com/mail/answer/180707?hl=es',
-  ftc: 'https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams'
+  ftc: 'https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams',
+  anatomy: 'https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Authority',
+  qr: 'https://consumer.ftc.gov/consumer-alerts/2023/12/scammers-hide-harmful-links-qr-codes-steal-your-information'
 };
 
 const guides = [
@@ -12,16 +16,10 @@ const guides = [
     headings: ['Inspecciona el enlace sin abrirlo', 'Desarma un correo sospechoso', 'Si ya caíste, actúa según lo que hiciste'],
     linkSteps: [
       ['Mira el destino real.', 'En escritorio, pasa el cursor sobre el botón y lee la dirección que muestra el navegador o el correo. Si no puedes verla completa en el celular, deja el enlace sin abrir y busca la gestión en la app oficial.'],
-      ['Ubica el servidor del enlace.', 'Empieza después de https:// y detente en la primera barra, signo de interrogación o numeral. Si hay una arroba en ese tramo, el servidor viene después de ella. En los ejemplos de abajo esperas “banco.example”. Compáralo con la dirección de un marcador que ya usas.'],
+      ['Ubica el servidor del enlace.', 'Empieza después de https:// y detente en la primera barra, signo de interrogación o numeral. Si hay una arroba en ese tramo, el servidor viene después de ella. En los ejemplos de abajo esperas “banco.example”. Compáralo con la dirección completa de un marcador que ya usas. Evita contar los dos últimos bloques como regla universal: hay terminaciones compuestas como .com.ve.'],
       ['Reconoce lo que puede quedar oculto.', 'HTTPS y el candado protegen la conexión, pero una página falsa también puede usarlos. Un acortador o un QR puede ocultar el destino. Incluso una dirección visible puede redirigir. Si el mensaje pide dinero, claves o códigos, abre el servicio por tu cuenta.']
     ],
-    practice: 'Practica con direcciones ficticias. Abre cada respuesta para ver qué servidor recibiría la visita inicial y qué dominio lo controla.',
-    answers: [
-      'El servidor sería banco.acceso.example, que pertenece a acceso.example. La palabra “banco” es un subdominio.',
-      'El servidor sería acceso.example. El texto “banco.example” aparece en la ruta y no controla el sitio.',
-      'El servidor sería acceso.example. Todo lo que queda antes de la arroba se interpreta como información de usuario, no como el servidor.',
-      'El servidor sería banco.example. En este ejemplo coincide con lo esperado. Todavía conviene abrir el servicio desde un marcador o la app.'
-    ],
+    practice: 'El banco de este ejercicio usa banco.example. En cada caso, identifica primero el servidor y luego despliega el análisis. Las direcciones son ficticias y están impresas como texto.',
     emailExample: ['Ejemplo ficticio', 'De: Banco Ejemplo <avisos@acceso.example>', 'Responder a: soporte@tramite.example', 'Asunto: Tu cuenta se bloqueará en 30 minutos', 'Botón visible: «Restablecer acceso»'],
     emailSteps: [
       ['Despliega el remitente.', 'El nombre visible dice “Banco Ejemplo”, pero la dirección viene de acceso.example. Si el cliente de correo muestra “Responder a”, revisa si apunta a otra dirección inesperada. No respondas para comprobarlo.'],
@@ -33,7 +31,7 @@ const guides = [
       ['Ingresaste una clave o un código.', 'Entra desde la app o web oficial con un dispositivo confiable. Cambia la clave, cierra otras sesiones y revisa el correo o teléfono de recuperación. Cambia la misma clave en cualquier otro servicio donde la reutilizaste.'],
       ['Diste datos bancarios o autorizaste un pago.', 'Llama de inmediato al banco por su canal oficial. Pide que revisen los movimientos y guarda el mensaje, la hora y las referencias.']
     ],
-    references: ['CISA · Señales de phishing (PDF)', 'Gmail · Cómo denunciar phishing', 'Gmail · Cómo revisar la autenticación', 'FTC · Qué hacer si respondiste']
+    references: ['CISA · Señales de phishing (PDF)', 'Gmail · Cómo denunciar phishing', 'Gmail · Cómo revisar la autenticación', 'FTC · Qué hacer si respondiste', 'MDN · Cómo se compone la dirección', 'FTC · Enlaces ocultos en códigos QR']
   },
   {
     title: 'Phishing under the microscope: check before you click',
@@ -41,16 +39,10 @@ const guides = [
     headings: ['Inspect a link without opening it', 'Take apart a suspicious email', 'If you fell for it, act based on what you did'],
     linkSteps: [
       ['Look at the actual destination.', 'On a desktop, hover over the button and read the address shown by the browser or email client. If you cannot see it in full on mobile, leave it unopened and look for the request in the official app.'],
-      ['Find the server in the link.', 'Start after https:// and stop at the first slash, question mark or hash sign. If that part contains an at sign, the server follows it. In the examples below you expect “banco.example”. Compare it with an address you already bookmarked.'],
+      ['Find the server in the link.', 'Start after https:// and stop at the first slash, question mark or hash sign. If that part contains an at sign, the server follows it. In the examples below you expect “banco.example”. Compare the full address with one you already bookmarked. Avoid assuming the last two labels always identify the owner. Some public suffixes have multiple labels, such as .com.ve.'],
       ['Recognize what can stay hidden.', 'HTTPS and the padlock protect the connection, but a fake site can use them too. A short link or QR code can hide the destination. Even a visible address can redirect. If the message asks for money, passwords or codes, open the service yourself.']
     ],
-    practice: 'Practice with fictional addresses. Open each answer to see which server would receive the initial visit and which domain controls it.',
-    answers: [
-      'The server is banco.acceso.example, which belongs to acceso.example. “banco” is a subdomain.',
-      'The server is acceso.example. “banco.example” appears in the path and does not control the site.',
-      'The server is acceso.example. Everything before the at sign is interpreted as user information, not the server.',
-      'The server is banco.example. It matches the expected domain in this exercise. You can still open the service from a bookmark or its app.'
-    ],
+    practice: 'The bank in this exercise uses banco.example. Identify the server in each case, then expand the breakdown. The fictional URLs are shown as plain text.',
     emailExample: ['Fictional example', 'From: Banco Ejemplo <avisos@acceso.example>', 'Reply-To: soporte@tramite.example', 'Subject: Your account will be locked in 30 minutes', 'Visible button: “Restore access”'],
     emailSteps: [
       ['Expand the sender details.', 'The display name says “Banco Ejemplo” but the address is at acceso.example. If your client shows a Reply-To address, check whether it points somewhere unexpected. Avoid replying to verify it.'],
@@ -62,15 +54,8 @@ const guides = [
       ['You entered a password or code.', 'Use the official app or website on a trusted device. Change the password, sign out other sessions and review the recovery email or phone number. Change that password on any other service where you reused it.'],
       ['You shared banking details or authorized a payment.', 'Call your bank immediately through its official channel. Ask it to review your transactions and save the message, time and references.']
     ],
-    references: ['CISA · Phishing warning signs (PDF)', 'Gmail · How to report phishing', 'Gmail · How to check authentication', 'FTC · What to do if you responded']
+    references: ['CISA · Phishing warning signs (PDF)', 'Gmail · How to report phishing', 'Gmail · How to check authentication', 'FTC · What to do if you responded', 'MDN · URL authority', 'FTC · Links hidden in QR codes']
   }
-];
-
-const examples = [
-  'https://banco.acceso.example/validar',
-  'https://acceso.example/banco.example',
-  'https://banco.example@acceso.example/validar',
-  'https://banco.example/validar'
 ];
 
 function phishingGuide(i, esc) {
@@ -83,7 +68,7 @@ function phishingGuide(i, esc) {
     ${list(g.linkSteps)}
     <div class="magazine-evidence">
       <p>${esc(g.practice)}</p>
-      ${examples.map((url, n) => `<details><summary><code>${esc(url)}</code></summary><p>${esc(g.answers[n])}</p></details>`).join('')}
+      ${urlCases(i, esc)}
     </div>
     <h3>${esc(g.headings[1])}</h3>
     <div class="magazine-evidence">

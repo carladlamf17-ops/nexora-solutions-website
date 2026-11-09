@@ -637,3 +637,18 @@
 }
 .magazine-evidence h3 { margin: 0; color: #8b1731; font-size: 24px; }
 .magazine-evidence p { margin: 7px 0 0; }
+
+.magazine-phishing > h3 {
+  margin: 28px 0 8px;
+  color: #8b1731;
+  font-size: clamp(24px, 3vw, 34px);
+}
+.magazine-phishing ol { padding-inline-start: 1.5em; }
+.magazine-phishing ol li + li { margin-top: 10px; }
+.magazine-phishing details {
+  border-top: 1px solid #d7dce6;
+  padding: 9px 0;
+}
+.magazine-phishing details:first-of-type { margin-top: 12px; }
+.magazine-phishing summary { cursor: pointer; color: #632037; overflow-wrap: anywhere; }
+.magazine-phishing details p { padding-inline-start: 16px; }

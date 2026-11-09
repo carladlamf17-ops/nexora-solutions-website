@@ -1,4 +1,5 @@
 const editionDate = '2026-11-09';
+const { phishingGuide, phishingTitle } = require('./magazine-phishing.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
 const sources = {
   ponzi: 'https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme',
@@ -84,7 +85,7 @@ function magazinePage(i, { head, header, footer, esc }) {
   const lang = i ? 'en' : 'es';
   const videoTitle = i ? 'How to verify a Pago Móvil payment' : 'Cómo verificar un Pago Móvil';
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
-  const items = [...issue.topics.map(([id, title]) => [id, title]), ['alertas-inversion', investmentTitle], ['respuesta', issue.response]];
+  const items = [['guia-phishing', phishingTitle(i)], ...issue.topics.map(([id, title]) => [id, title]), ['alertas-inversion', investmentTitle], ['respuesta', issue.response]];
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
 <main id="contenido" class="magazine">
   <div class="magazine-cover">
@@ -99,7 +100,7 @@ function magazinePage(i, { head, header, footer, esc }) {
       <p class="magazine-intro">${issue.intro}</p>
       <div class="magazine-cover-links">
         <a class="magazine-watch" href="#video-whatsapp"><span aria-hidden="true">▶</span> ${i ? 'Watch the news clip' : 'Ver el noticiero'}</a>
-        <a href="#casos">${i ? 'Explore the cases' : 'Explorar los casos'} <span aria-hidden="true">↓</span></a>
+        <a href="#guia-phishing">${i ? 'Practice spotting phishing' : 'Practica cómo detectar phishing'} <span aria-hidden="true">↓</span></a>
       </div>
       </div>
       <div class="magazine-cover-art">
@@ -165,6 +166,7 @@ function magazinePage(i, { head, header, footer, esc }) {
       <ol>${items.map(([id, title]) => `<li><a href="#${id}">${esc(title)}</a></li>`).join('')}</ol>
     </nav>
     <div class="magazine-stories">
+      ${phishingGuide(i, esc)}
       ${issue.topics.map(([id, title, detail, prevention, references = []], n) => `<article id="${id}">
         <p class="magazine-story-number" aria-hidden="true">${String(n + 1).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>

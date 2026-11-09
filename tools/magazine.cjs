@@ -83,7 +83,20 @@ function magazinePage(i, { head, header, footer, esc }) {
   const issue = editions[i];
   const issueLabel = i ? 'Issue 01' : 'Edición 01';
   const lang = i ? 'en' : 'es';
-  const videoTitle = i ? 'How to verify a Pago Móvil payment' : 'Cómo verificar un Pago Móvil';
+  const videoClips = [
+    {
+      id: 'video-whatsapp', story: 'dolares-whatsapp', asset: 'chat',
+      label: 'WhatsApp', title: i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'
+    },
+    {
+      id: 'video-pago-movil', story: 'pago-movil-falso', asset: 'pagomovil',
+      label: 'Pago Móvil', title: i ? 'Did the money actually arrive?' : '¿La plata sí cayó?'
+    },
+    {
+      id: 'video-cicpc', story: 'citaciones', asset: 'cicpc',
+      label: 'CICPC', title: i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'
+    }
+  ];
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
   const items = [['guia-phishing', phishingTitle(i)], ...issue.topics.map(([id, title]) => [id, title]), ['alertas-inversion', investmentTitle], ['respuesta', issue.response]];
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
@@ -121,43 +134,22 @@ function magazinePage(i, { head, header, footer, esc }) {
       <a href="#citaciones"><span>03</span> ${i ? 'Fake summonses' : 'Falsas citaciones'}</a>
     </div>
   </div>
-  <section class="magazine-media" aria-labelledby="magazine-news-title">
-    <div class="wrap magazine-news" id="video-whatsapp">
-      <div>
-        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
-        <h2 id="magazine-news-title">${i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'}</h2>
-        <p>${i ? 'Follow the simulated chat and see how to verify the offer before sending money. Narrated with on-screen captions.' : 'Mira cómo evoluciona el chat simulado y cómo verificar la oferta antes de enviar dinero. Con voz venezolana y subtítulos en pantalla.'}</p>
-        <a href="#dolares-whatsapp">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+  <section class="magazine-media" aria-labelledby="magazine-reels-title">
+    <div class="wrap">
+      <p class="eyebrow">${i ? 'Digital alert · Vertical videos' : 'Alerta digital · Videos verticales'}</p>
+      <h2 id="magazine-reels-title">${i ? 'Scams in short clips' : 'Estafas en video'}</h2>
+      <p class="magazine-reels-intro">${i ? 'Three simulated scams with narration and captions.' : 'Tres estafas simuladas con narración y subtítulos.'}</p>
+      <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all three.' : 'Desliza para ver los tres.'}</p>
+      <div class="magazine-reels" role="region" aria-labelledby="magazine-reels-title" tabindex="0">
+        ${videoClips.map(({ id, story, asset, label, title }, n) => `<article class="magazine-news magazine-news-${asset}" id="${id}">
+          <p class="eyebrow"><span aria-hidden="true">${String(n + 1).padStart(2, '0')} · </span>${esc(label)}</p>
+          <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-${asset}-${lang}.webp" aria-labelledby="${id}-title">
+            <source src="/assets/revista-noticiero-${asset}-${lang}.mp4" type="video/mp4">
+          </video>
+          <h3 id="${id}-title">${esc(title)}</h3>
+          <a href="#${story}">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+        </article>`).join('')}
       </div>
-      <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-chat-${lang}.webp" aria-labelledby="magazine-news-title">
-        <source src="/assets/revista-noticiero-chat-${lang}.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="wrap magazine-news magazine-news-payment" id="video-pago-movil">
-      <div>
-        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
-        <h2 id="magazine-video-title">${videoTitle}</h2>
-        <p>${i ? 'A buyer says they paid. See how to check whether the money actually reached your account.' : 'El comprador jura que pagó. Mira el comprobante simulado y aprende a confirmar si la plata sí cayó en tu cuenta.'}</p>
-        <p><a href="#pago-movil-falso">${i ? 'Read the steps and what to do if you already handed over the goods' : 'Lee los pasos y qué hacer si ya entregaste el pedido'}</a></p>
-        <picture class="magazine-media-alert">
-          <source media="(prefers-reduced-motion: reduce)" srcset="/assets/revista-alerta-${lang}.webp">
-          <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
-        </picture>
-      </div>
-      <video controls playsinline preload="none" class="magazine-news-video" width="540" height="960" poster="/assets/revista-noticiero-pagomovil-${lang}.webp" aria-label="${videoTitle}">
-          <source src="/assets/revista-noticiero-pagomovil-${lang}.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="wrap magazine-news magazine-news-citations" id="video-cicpc">
-      <div>
-        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
-        <h2 id="magazine-cicpc-title">${i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'}</h2>
-        <p>${i ? 'See how a fake summons turns into a demand for money and how to check it with the relevant CICPC office. Includes narration and on-screen captions.' : 'Mira cómo una citación simulada se convierte en una exigencia de dinero y cómo verificarla con la dependencia del CICPC. Con voz venezolana y subtítulos.'}</p>
-        <a href="#citaciones">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
-      </div>
-      <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-cicpc-${lang}.webp" aria-labelledby="magazine-cicpc-title">
-        <source src="/assets/revista-noticiero-cicpc-${lang}.mp4" type="video/mp4">
-      </video>
     </div>
   </section>
   <div class="wrap magazine-layout" id="casos">
@@ -171,6 +163,10 @@ function magazinePage(i, { head, header, footer, esc }) {
         <p class="magazine-story-number" aria-hidden="true">${String(n + 1).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>
         <p>${esc(detail)}</p>
+${id === 'pago-movil-falso' ? `        <picture class="magazine-media-alert">
+          <source media="(prefers-reduced-motion: reduce)" srcset="/assets/revista-alerta-${lang}.webp">
+          <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
+        </picture>` : ''}
 ${id === 'citaciones' ? `        <p><a href="#video-cicpc">${i ? 'Watch the CICPC news clip' : 'Ver el noticiero sobre falsas citaciones'}</a></p>` : ''}
 ${fieldNotes[i][id] ? `        <div class="magazine-evidence"><h3>${esc(fieldNotes[i][id][0])}</h3><p>${esc(fieldNotes[i][id][1])}</p></div>` : ''}
         <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>

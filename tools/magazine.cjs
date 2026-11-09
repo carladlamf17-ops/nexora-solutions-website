@@ -66,13 +66,19 @@ function magazinePage(i, { head, header, footer, esc }) {
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
 <main id="contenido" class="magazine">
   <div class="magazine-cover">
+    <div class="wrap magazine-masthead">
+      <p><span aria-hidden="true">◆</span> Nexora Solutions / ${i ? 'Digital magazine' : 'Revista digital'}</p>
+      <p>${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>
+    </div>
     <div class="wrap magazine-cover-layout">
       <div>
-      <p class="eyebrow">${issue.label} · Nexora Solutions</p>
+      <p class="eyebrow">${issue.label}</p>
       <h1>${esc(issue.coverTitle[0])} <span>${esc(issue.coverTitle[1])}</span></h1>
       <p class="magazine-intro">${issue.intro}</p>
-      <p class="magazine-edition">${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>
-      <a class="magazine-watch" href="#video-pago-movil"><span aria-hidden="true">▶</span> ${i ? 'Watch the 12-second guide' : 'Ver la guía en 12 segundos'}</a>
+      <div class="magazine-cover-links">
+        <a class="magazine-watch" href="#video-whatsapp"><span aria-hidden="true">▶</span> ${i ? 'Watch the news clip' : 'Ver el noticiero'}</a>
+        <a href="#casos">${i ? 'Explore the cases' : 'Explorar los casos'} <span aria-hidden="true">↓</span></a>
+      </div>
       </div>
       <div class="magazine-cover-art">
         <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
@@ -86,9 +92,25 @@ function magazinePage(i, { head, header, footer, esc }) {
         <button class="magazine-replay" type="button" hidden>${i ? 'Replay cover animation' : 'Repetir animación de portada'}</button>
       </div>
     </div>
+    <div class="wrap magazine-cover-topics">
+      <a href="#dolares-whatsapp"><span>01</span> ${i ? 'WhatsApp impersonation' : 'Suplantación por WhatsApp'}</a>
+      <a href="#pago-movil-falso"><span>02</span> ${i ? 'Fake receipts' : 'Comprobantes falsos'}</a>
+      <a href="#citaciones"><span>03</span> ${i ? 'Fake summonses' : 'Falsas citaciones'}</a>
+    </div>
   </div>
-  <section class="magazine-media" id="video-pago-movil" aria-labelledby="magazine-video-title">
-    <div class="wrap magazine-media-grid">
+  <section class="magazine-media" aria-labelledby="magazine-news-title">
+    <div class="wrap magazine-news" id="video-whatsapp">
+      <div>
+        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
+        <h2 id="magazine-news-title">${i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'}</h2>
+        <p>${i ? 'Follow the simulated chat and see how to verify the offer before sending money. Narrated with on-screen captions.' : 'Mira cómo evoluciona el chat simulado y cómo verificar la oferta antes de enviar dinero. Con voz venezolana y subtítulos en pantalla.'}</p>
+        <a href="#dolares-whatsapp">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+      </div>
+      <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-chat-${lang}.webp" aria-labelledby="magazine-news-title">
+        <source src="/assets/revista-noticiero-chat-${lang}.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="wrap magazine-media-grid" id="video-pago-movil">
       <div>
         <p class="eyebrow">${i ? 'Video guide · 12 seconds' : 'Guía en video · 12 segundos'}</p>
         <h2 id="magazine-video-title">${videoTitle}</h2>
@@ -102,19 +124,8 @@ function magazinePage(i, { head, header, footer, esc }) {
         <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
       </picture>
     </div>
-    <div class="wrap magazine-news">
-      <div>
-        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
-        <h2 id="magazine-news-title">${i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'}</h2>
-        <p>${i ? 'A short news-style recap of the fake relative offering to sell dollars on WhatsApp.' : 'Un microvideo estilo noticiero sobre el falso familiar que ofrece vender dólares por WhatsApp.'}</p>
-        <a href="#dolares-whatsapp">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
-      </div>
-      <video class="magazine-news-video" controls playsinline preload="none" width="450" height="800" poster="/assets/revista-noticiero-${lang}.webp" aria-labelledby="magazine-news-title">
-        <source src="/assets/revista-noticiero-${lang}.mp4" type="video/mp4">
-      </video>
-    </div>
   </section>
-  <div class="wrap magazine-layout">
+  <div class="wrap magazine-layout" id="casos">
     <nav class="magazine-index" aria-label="${issue.contents}">
       <h2>${issue.contents}</h2>
       <ol>${items.map(([id, title]) => `<li><a href="#${id}">${esc(title)}</a></li>`).join('')}</ol>

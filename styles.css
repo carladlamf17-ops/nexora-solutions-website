@@ -337,20 +337,42 @@
 @media(max-width:650px){.delivery-support-grid{grid-template-columns:1fr;gap:22px}.delivery-card{padding:25px}.delivery-card h3{font-size:34px}.delivery-card dt{font-size:17px}.delivery-card dd{font-size:15px}.support-card{scroll-margin-top:100px}.delivery-support-links{flex-direction:column;align-items:flex-start}.delivery-support-links a{font-size:14px}}
 
 /* Cybersecurity magazine */
-.magazine-cover {
-  padding-block: clamp(58px, 9vw, 112px);
-  color: #fff;
-  background: radial-gradient(ellipse at 95% 10%, #253a78, #14213d 64%);
+.magazine {
+  color: #251b16;
+  background: #fffaf0;
 }
-.magazine-cover .eyebrow { color: #b8cdff; }
+.magazine-cover {
+  padding-block: 18px 0;
+  border-bottom: 3px double #b6846e;
+  color: #251b16;
+  background:
+    radial-gradient(circle at 80% 35%, #f9d78482, transparent 34%),
+    radial-gradient(#a9624430 .8px, transparent .8px) 0 0 / 9px 9px,
+    #f7ecd5;
+}
+.magazine-masthead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 18px;
+  border-top: 4px solid #951f20;
+  border-bottom: 1px solid #b6846e;
+  padding-block: 8px;
+  color: #73251f;
+  font-size: .78em;
+  font-weight: 800;
+  letter-spacing: .035em;
+}
+.magazine-masthead p { margin: 0; }
+.magazine-cover .eyebrow { color: #8d2220; }
 .magazine-cover h1 {
   max-width: 850px;
   margin: 14px 0 18px;
   font-size: clamp(46px, 8vw, 108px);
   line-height: .95;
 }
-.magazine-intro { max-width: 58ch; margin: 0; color: #e2eaff; font-size: clamp(18px, 2vw, 23px); }
-.magazine-edition { margin: 28px 0 0; color: #b8cdff; font-weight: 600; }
+.magazine-intro { max-width: 58ch; margin: 0; color: #533c30; font-size: clamp(18px, 2vw, 23px); }
+
 .magazine-layout {
   display: grid;
   grid-template-columns: minmax(0, 270px) minmax(0, 780px);
@@ -396,36 +418,36 @@
   display: grid;
   grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
   align-items: center;
-  gap: clamp(24px, 5vw, 72px);
+  gap: clamp(28px, 5vw, 72px);
+  padding-block: clamp(28px, 5vw, 70px) clamp(52px, 6vw, 90px);
 }
 .magazine-cover-layout h1 { font-size: clamp(46px, 5.5vw, 86px); }
 .magazine-cover-image {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid #ffffff30;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px #070c1a65;
+  border: 1px solid #805440;
+  border-radius: 5px;
+  box-shadow: 10px 10px 0 #a74e3133, 0 15px 36px #452b1a30;
 }
 @media (max-width: 850px) {
   .magazine-cover-layout { grid-template-columns: 1fr; }
 }
 
-.magazine-cover-layout h1 span { display: block; color: #ffd24f; }
+.magazine-cover-layout h1 span { display: block; color: #a12321; }
 
 .magazine a.magazine-watch {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 22px;
   padding: 10px 16px;
   border-radius: 6px;
-  background: #ffd24f;
-  color: #14213d;
+  background: #a12321;
+  color: #fff5df;
   font-weight: 800;
   text-decoration: none;
 }
-.magazine a.magazine-watch:hover { background: #ffe28f; }
+.magazine a.magazine-watch:hover { background: #781815; }
 .magazine-media {
   padding-block: clamp(32px, 6vw, 76px);
   border-block: 1px solid #e8dcc4;
@@ -475,7 +497,7 @@
   position: absolute;
   inset: 1px;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 4px;
   pointer-events: none;
 }
 .magazine-cover-phone, .magazine-cover-paper, .magazine-cover-stamp {
@@ -548,10 +570,10 @@
   right: 0;
   top: calc(100% + 8px);
   padding: 3px 8px;
-  border: 1px solid #b8cdff65;
+  border: 1px solid #a96f5b;
   border-radius: 4px;
-  background: #14213d;
-  color: #e2eaff;
+  background: #fff7e3;
+  color: #73251f;
   font: 600 .75em/1.5 Barlow, sans-serif;
   cursor: pointer;
 }
@@ -564,11 +586,11 @@
   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
   align-items: center;
   gap: clamp(20px, 5vw, 65px);
-  margin-top: clamp(36px, 6vw, 72px);
+  margin-bottom: clamp(36px, 6vw, 72px);
   padding: clamp(20px, 4vw, 50px);
   border-top: 5px solid #d63437;
   border-radius: 12px;
-  background: #14213d;
+  background: #302018;
   color: #fff6e4;
 }
 .magazine-news .eyebrow, .magazine-news a { color: #ffd24f; }
@@ -580,4 +602,36 @@
 }
 @media (max-width: 650px) {
   .magazine-news { grid-template-columns: minmax(0, 1fr); }
+}
+
+.magazine-cover-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 25px;
+}
+.magazine-cover-links a:not(.magazine-watch) { color: #79231e; font-weight: 700; }
+.magazine-cover-topics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid #b6846e;
+}
+.magazine-cover-topics a {
+  padding: 12px 8px;
+  color: #4d3025;
+  font-size: .88em;
+  font-weight: 700;
+}
+.magazine-cover-topics span {
+  margin-right: 5px;
+  color: #8d2220;
+  font-weight: 800;
+}
+.magazine-index, .magazine-tip, .magazine-response { background: #f7ecd5; }
+.magazine-tip, .magazine-response { border-inline-start-color: #a12321; }
+.magazine-index a, .magazine-sources a, .magazine-response a { color: #79231e; }
+@media (max-width: 650px) {
+  .magazine-cover-topics { grid-template-columns: 1fr; padding-block: 8px; }
+  .magazine-cover-topics a { padding: 4px 0; }
 }

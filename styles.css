@@ -426,12 +426,6 @@
   text-decoration: none;
 }
 .magazine a.magazine-watch:hover { background: #ffe28f; }
-.magazine-cover-image { animation: magazine-print-in .75s ease-out both; }
-@keyframes magazine-print-in {
-  from { opacity: 0; transform: translateY(18px) rotate(-1.5deg) scale(.98); }
-  to { opacity: 1; transform: none; }
-}
-.motion-paused .magazine-cover-image { animation: none; }
 .magazine-media {
   padding-block: clamp(32px, 6vw, 76px);
   border-block: 1px solid #e8dcc4;
@@ -474,4 +468,116 @@
 }
 @media (max-width: 850px) {
   .magazine-media-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.magazine-cover-art { position: relative; }
+.magazine-cover-action {
+  position: absolute;
+  inset: 1px;
+  overflow: hidden;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.magazine-cover-phone, .magazine-cover-paper, .magazine-cover-stamp {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.magazine-cover-phone, .magazine-cover-stamp {
+  background: url('/assets/revista-portada-periodico.webp') center / 100% 100% no-repeat;
+}
+.magazine-cover-phone {
+  clip-path: polygon(26% 69%, 27% 64%, 43% 55%, 49% 54%, 53% 57%, 57% 67%, 61% 81%, 55% 88%, 48% 87%, 35% 83%);
+  transform-origin: 45% 76%;
+  animation: magazine-phone 1.4s .15s ease-in-out;
+}
+.magazine-cover-message {
+  position: absolute;
+  top: 74%;
+  left: 46%;
+  padding: .1em .6em .25em;
+  border: 1px solid #c7ff97;
+  border-radius: 10px 10px 10px 2px;
+  background: #085b2e;
+  color: #e8ffdb;
+  font: 800 clamp(12px, 2vw, 24px)/1.1 Barlow, sans-serif;
+  box-shadow: 0 3px 12px #002c25b0;
+  opacity: 0;
+  animation: magazine-message 1.45s .85s ease-out;
+}
+.magazine-cover-message + .magazine-cover-message {
+  left: 52%;
+  animation-delay: 1.15s;
+}
+.magazine-cover-paper, .magazine-cover-stamp {
+  clip-path: polygon(64.4% 79.2%, 92.1% 67.9%, 96% 83.5%, 68.9% 95%);
+}
+.magazine-cover-paper {
+  background: repeating-linear-gradient(12deg, #e9d4b5 0 2px, #e4ceae 2px 4px);
+  animation: magazine-paper 3.5s step-end;
+}
+.magazine-cover-stamp {
+  transform-origin: 80% 81%;
+  animation: magazine-stamp .85s 2.65s cubic-bezier(.2,.8,.32,1);
+}
+@keyframes magazine-phone {
+  0%, 100% { opacity: 0; transform: none; }
+  12%, 86% { opacity: 1; transform: none; }
+  42% { opacity: 1; transform: translate(-1%, -1.4%) rotate(-4deg); }
+  64% { opacity: 1; transform: translate(.3%, -.5%) rotate(2deg); }
+}
+@keyframes magazine-message {
+  0% { opacity: 0; transform: scale(.5); }
+  24% { opacity: 1; transform: translateY(-160%) rotate(-9deg) scale(1.15); }
+  65% { opacity: 1; transform: translateY(-125%) rotate(-5deg); }
+  100% { opacity: 0; transform: translateY(-215%) rotate(-8deg); }
+}
+@keyframes magazine-paper {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes magazine-stamp {
+  0% { opacity: 0; transform: scale(1.65) rotate(12deg); }
+  30% { opacity: 1; transform: scale(.96) rotate(-2deg); }
+  58%, 100% { opacity: 1; transform: none; }
+}
+.motion-paused .magazine-cover-action { display: none; }
+
+.magazine-replay {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  padding: 3px 8px;
+  border: 1px solid #b8cdff65;
+  border-radius: 4px;
+  background: #14213d;
+  color: #e2eaff;
+  font: 600 .75em/1.5 Barlow, sans-serif;
+  cursor: pointer;
+}
+.motion-paused .magazine-replay { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .magazine-cover-action, .magazine-replay { display: none; }
+}
+.magazine-news {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center;
+  gap: clamp(20px, 5vw, 65px);
+  margin-top: clamp(36px, 6vw, 72px);
+  padding: clamp(20px, 4vw, 50px);
+  border-top: 5px solid #d63437;
+  border-radius: 12px;
+  background: #14213d;
+  color: #fff6e4;
+}
+.magazine-news .eyebrow, .magazine-news a { color: #ffd24f; }
+.magazine-news a:hover { color: #fff6e4; }
+.magazine-media .magazine-news-video {
+  max-width: 275px;
+  justify-self: center;
+  aspect-ratio: 9 / 16;
+}
+@media (max-width: 650px) {
+  .magazine-news { grid-template-columns: minmax(0, 1fr); }
 }

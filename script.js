@@ -82,6 +82,16 @@
   });
   reduced.addEventListener('change',applyMotion);
   applyMotion();
+  const coverReplay = document.querySelector('.magazine-replay');
+  if (coverReplay) {
+    const coverAction = coverReplay.previousElementSibling;
+    coverReplay.hidden = false;
+    coverReplay.addEventListener('click', () => {
+      coverAction.classList.remove('magazine-cover-action');
+      void coverAction.offsetWidth;
+      coverAction.classList.add('magazine-cover-action');
+    });
+  }
   if('IntersectionObserver' in window && !reduced.matches){
     body.classList.add('motion-ready');
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {

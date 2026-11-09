@@ -74,7 +74,17 @@ function magazinePage(i, { head, header, footer, esc }) {
       <p class="magazine-edition">${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>
       <a class="magazine-watch" href="#video-pago-movil"><span aria-hidden="true">▶</span> ${i ? 'Watch the 12-second guide' : 'Ver la guía en 12 segundos'}</a>
       </div>
-      <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
+      <div class="magazine-cover-art">
+        <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
+        <div class="magazine-cover-action" aria-hidden="true">
+          <span class="magazine-cover-phone"></span>
+          <span class="magazine-cover-message">•••</span>
+          <span class="magazine-cover-message">•••</span>
+          <span class="magazine-cover-paper"></span>
+          <span class="magazine-cover-stamp"></span>
+        </div>
+        <button class="magazine-replay" type="button" hidden>${i ? 'Replay cover animation' : 'Repetir animación de portada'}</button>
+      </div>
     </div>
   </div>
   <section class="magazine-media" id="video-pago-movil" aria-labelledby="magazine-video-title">
@@ -91,6 +101,17 @@ function magazinePage(i, { head, header, footer, esc }) {
         <source media="(prefers-reduced-motion: reduce)" srcset="/assets/revista-alerta-${lang}.webp">
         <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
       </picture>
+    </div>
+    <div class="wrap magazine-news">
+      <div>
+        <p class="eyebrow">${i ? 'Digital alert · Vertical video' : 'Alerta digital · Video vertical'}</p>
+        <h2 id="magazine-news-title">${i ? '“Cousin, I got a new number”' : '«Prima, cambié de número»'}</h2>
+        <p>${i ? 'A short news-style recap of the fake relative offering to sell dollars on WhatsApp.' : 'Un microvideo estilo noticiero sobre el falso familiar que ofrece vender dólares por WhatsApp.'}</p>
+        <a href="#dolares-whatsapp">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
+      </div>
+      <video class="magazine-news-video" controls playsinline preload="none" width="450" height="800" poster="/assets/revista-noticiero-${lang}.webp" aria-labelledby="magazine-news-title">
+        <source src="/assets/revista-noticiero-${lang}.mp4" type="video/mp4">
+      </video>
     </div>
   </section>
   <div class="wrap magazine-layout">

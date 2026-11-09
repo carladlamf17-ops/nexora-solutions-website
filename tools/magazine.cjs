@@ -60,6 +60,8 @@ const editions = [
 function magazinePage(i, { head, header, footer, esc }) {
   const issue = editions[i];
   const issueLabel = i ? 'Issue 01' : 'Edición 01';
+  const lang = i ? 'en' : 'es';
+  const videoTitle = i ? 'How to verify a Pago Móvil payment' : 'Cómo verificar un Pago Móvil';
   const items = [...issue.topics.map(([id, title]) => [id, title]), ['respuesta', issue.response]];
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
 <main id="contenido" class="magazine">
@@ -70,17 +72,35 @@ function magazinePage(i, { head, header, footer, esc }) {
       <h1>${esc(issue.coverTitle[0])} <span>${esc(issue.coverTitle[1])}</span></h1>
       <p class="magazine-intro">${issue.intro}</p>
       <p class="magazine-edition">${issueLabel} <span aria-hidden="true">·</span> <time datetime="${editionDate}">${issue.date}</time></p>
+      <a class="magazine-watch" href="#video-pago-movil"><span aria-hidden="true">▶</span> ${i ? 'Watch the 12-second guide' : 'Ver la guía en 12 segundos'}</a>
       </div>
       <img class="magazine-cover-image" src="/assets/revista-portada-periodico.webp" width="1200" height="900" alt="${esc(issue.coverAlt)}" fetchpriority="high">
     </div>
   </div>
+  <section class="magazine-media" id="video-pago-movil" aria-labelledby="magazine-video-title">
+    <div class="wrap magazine-media-grid">
+      <div>
+        <p class="eyebrow">${i ? 'Video guide · 12 seconds' : 'Guía en video · 12 segundos'}</p>
+        <h2 id="magazine-video-title">${videoTitle}</h2>
+        <video controls playsinline preload="none" width="960" height="540" poster="/assets/revista-video-${lang}.webp" aria-label="${videoTitle}">
+          <source src="/assets/revista-video-${lang}.mp4" type="video/mp4">
+        </video>
+        <p><a href="#pago-movil-falso">${i ? 'Read the steps and what to do if you already handed over the goods' : 'Lee los pasos y qué hacer si ya entregaste el pedido'}</a></p>
+      </div>
+      <picture class="magazine-media-alert">
+        <source media="(prefers-reduced-motion: reduce)" srcset="/assets/revista-alerta-${lang}.webp">
+        <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
+      </picture>
+    </div>
+  </section>
   <div class="wrap magazine-layout">
     <nav class="magazine-index" aria-label="${issue.contents}">
       <h2>${issue.contents}</h2>
       <ol>${items.map(([id, title]) => `<li><a href="#${id}">${esc(title)}</a></li>`).join('')}</ol>
     </nav>
     <div class="magazine-stories">
-      ${issue.topics.map(([id, title, detail, prevention, references = []]) => `<article id="${id}">
+      ${issue.topics.map(([id, title, detail, prevention, references = []], n) => `<article id="${id}">
+        <p class="magazine-story-number" aria-hidden="true">${String(n + 1).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>
         <p>${esc(detail)}</p>
         <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>

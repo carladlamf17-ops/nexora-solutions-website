@@ -335,3 +335,59 @@
 .delivery-support-links a{font-size:15px;color:#3154ce;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:900px){.delivery-card{padding:28px}.delivery-card h3{font-size:36px}}
 @media(max-width:650px){.delivery-support-grid{grid-template-columns:1fr;gap:22px}.delivery-card{padding:25px}.delivery-card h3{font-size:34px}.delivery-card dt{font-size:17px}.delivery-card dd{font-size:15px}.support-card{scroll-margin-top:100px}.delivery-support-links{flex-direction:column;align-items:flex-start}.delivery-support-links a{font-size:14px}}
+
+/* Cybersecurity magazine */
+.magazine-cover {
+  padding-block: clamp(58px, 9vw, 112px);
+  color: #fff;
+  background: radial-gradient(ellipse at 95% 10%, #253a78, #14213d 64%);
+}
+.magazine-cover .eyebrow { color: #b8cdff; }
+.magazine-cover h1 {
+  max-width: 850px;
+  margin: 14px 0 18px;
+  font-size: clamp(46px, 8vw, 108px);
+  line-height: .95;
+}
+.magazine-intro { max-width: 58ch; margin: 0; color: #e2eaff; font-size: clamp(18px, 2vw, 23px); }
+.magazine-edition { margin: 28px 0 0; color: #b8cdff; font-weight: 600; }
+.magazine-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 270px) minmax(0, 780px);
+  justify-content: space-between;
+  align-items: start;
+  gap: clamp(25px, 5vw, 80px);
+  padding-block: clamp(35px, 6vw, 84px);
+}
+.magazine-index {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f5f7fc;
+}
+.magazine-index h2 { margin: 0; font-size: 28px; }
+.magazine-index ol, .magazine-response ol { padding-inline-start: 1.4em; }
+.magazine-index li + li { margin-top: 10px; }
+.magazine-stories article {
+  padding-bottom: 34px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid var(--line);
+}
+.magazine-stories h2 { margin: 0; font-size: clamp(30px, 4vw, 50px); }
+.magazine-tip, .magazine-response {
+  padding: clamp(17px, 3vw, 34px);
+  border-inline-start: 4px solid #3154d5;
+  border-radius: 0 10px 10px 0;
+  background: #edf2ff;
+}
+.magazine-tip h3 { margin: 0; font-size: 24px; }
+.magazine-tip p, .magazine-response li p { margin: 6px 0 0; }
+.magazine-response li + li { margin-top: 16px; }
+.magazine-response > p:last-child { margin-bottom: 0; }
+.magazine-sources { padding-inline-start: 1.2em; font-size: .92em; }
+.magazine a { color: #2645ad; text-decoration: underline; text-underline-offset: .18em; }
+.magazine a:hover { color: #14213d; }
+.nav-wrap nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: .3em; }
+@media (max-width: 850px) {
+  .magazine-layout { grid-template-columns: minmax(0, 1fr); }
+}

@@ -41,7 +41,7 @@ class Page(HTMLParser):
         if tag == 'script' and self.script is not None:
             self.jsonld.append(json.loads(self.script)); self.script = None
 
-files = [ROOT/'index.html',ROOT/'privacy.html',*sorted((ROOT/'proyectos').rglob('*.html')),*sorted((ROOT/'servicios').rglob('*.html')),*sorted((ROOT/'en').rglob('*.html'))]
+files = [ROOT/'index.html',ROOT/'privacy.html',*sorted((ROOT/'proyectos').rglob('*.html')),*sorted((ROOT/'servicios').rglob('*.html')),*sorted((ROOT/'revista').rglob('*.html')),*sorted((ROOT/'en').rglob('*.html'))]
 pages = {f:Page(f) for f in files}
 for f,p in pages.items():
     rel = f.relative_to(ROOT).as_posix()

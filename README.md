@@ -4,9 +4,11 @@ Sitio estático de https://www.nexorasolutionsve.com/, publicado con GitHub Page
 
 ## Editar y generar
 
-`tools/build-site.cjs` contiene las plantillas compartidas y `tools/projects.cjs` el contenido y la procedencia de cada captura. Ejecutar `node tools/build-site.cjs` después de editarlo. Genera 32 páginas: portadas ES/EN, diez páginas de proyecto, dos páginas de privacidad, dos directorios de servicios y dieciséis páginas de servicios; además de robots y sitemap. Los HTML generados se incluyen en Git para que Pages no necesite dependencias de compilación.
+`tools/build-site.cjs` contiene las plantillas compartidas y `tools/projects.cjs` el contenido y la procedencia de cada captura. Ejecutar `node tools/build-site.cjs` después de editarlo. Genera 34 páginas: portadas ES/EN, diez páginas de proyecto, dos páginas de privacidad, dos directorios de servicios y dieciséis páginas de servicios y dos versiones de la revista; además de robots y sitemap. Los HTML generados se incluyen en Git para que Pages no necesite dependencias de compilación.
 
 El contenido de los servicios vive en `tools/services.cjs` y `tools/more-services.cjs`; sus plantillas en `tools/service-pages.cjs`. `tools/service-design.cjs` define colores, iconos y referencias a capturas reales por servicio. Las cabeceras enlazan a la ficha del proyecto y conservan su leyenda de contexto; ciberseguridad presenta la formación del personal. No se utilizan diagramas conceptuales como sustitutos de las pantallas del portafolio. `tools/home-offer.cjs` presenta en la portada un resumen breve de las dos áreas de servicio, sin repetir el catálogo de funciones.
+
+La edición de la revista se mantiene en `tools/magazine.cjs` y se genera en `/revista/` y `/en/revista/`.
 
 La apariencia vive en `styles.css`; las interacciones en `script.js`. Comprobar `node --check script.js`, `python tools/verify-site.py` y `git diff --check`. La comprobación de archivos no sustituye la revisión visual en escritorio y móvil.
 
@@ -40,7 +42,7 @@ El menú distingue **Servicios** (lo que puede contratar la empresa), **Portafol
 
 ## SEO y publicación
 
-Cada ruta tiene título, descripción, canonical, idiomas recíprocos y datos estructurados de empresa/página; los proyectos y servicios añaden breadcrumbs. Los servicios añaden `Service` con cobertura El Tigre, Anzoátegui y Venezuela; los directorios añaden `ItemList`. El sitemap incluye 32 rutas. Mantener el dominio y los datos empresariales consistentes. La imagen social muestra la página real.
+Cada ruta tiene título, descripción, canonical, idiomas recíprocos y datos estructurados de empresa/página; los proyectos y servicios añaden breadcrumbs. Los servicios añaden `Service` con cobertura El Tigre, Anzoátegui y Venezuela; los directorios añaden `ItemList`. El sitemap incluye 34 rutas. Mantener el dominio y los datos empresariales consistentes. La imagen social muestra la página real.
 
 Las páginas nuevas cubren sistemas a medida, contables, administrativos, comerciales, de inventario, operativos y documentales, automatización y ciberseguridad. Cada una tiene una URL propia bajo `/servicios/` y su equivalente en inglés. El directorio está en `/servicios/` y enlaza desde el menú principal. La portada presenta dos resúmenes de servicios y enlaza al catálogo. Los detalles de módulos y funciones viven en las páginas de servicios; las capturas y el alcance de trabajos realizados se explican en las fichas del portafolio. Los enlaces a trabajos relacionados en cada servicio se muestran como referencias compactas, sin repetir la ficha completa.
 

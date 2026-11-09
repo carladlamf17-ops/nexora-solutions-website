@@ -1,5 +1,5 @@
 const editionDate = '2026-11-09';
-const { phishingGuide, phishingTitle } = require('./magazine-phishing.cjs');
+const { phishingGuide } = require('./magazine-phishing.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
 const sources = {
   ponzi: 'https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme',
@@ -107,7 +107,16 @@ function magazinePage(i, { head, header, footer, esc }) {
     }
   ];
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
-  const items = [['guia-phishing', phishingTitle(i)], ...issue.topics.map(([id, title]) => [id, title]), ['alertas-inversion', investmentTitle], ['respuesta', issue.response]];
+  const items = [
+    ['guia-phishing', i ? 'Phishing guide' : 'Guía de phishing'],
+    ['dolares-whatsapp', i ? 'Dollar scams on WhatsApp' : 'Dólares por WhatsApp'],
+    ['pago-movil-falso', i ? 'Fake payment receipts' : 'Comprobantes falsos'],
+    ['ponzi', i ? 'Ponzi and task scams' : 'Ponzi y estafas de tareas'],
+    ['adselect', 'AdSelect'],
+    ['operadoras', i ? 'Fake carrier calls' : 'Falsos técnicos'],
+    ['citaciones', i ? 'Fake police summonses' : 'Falsas citaciones'],
+    ['alertas-inversion', i ? 'Investment alerts' : 'Alertas de inversión']
+  ];
   return head(i, magazineRoute(i), `${issue.title} | Nexora Solutions`, issue.intro) + header(i, magazineRoute(1 - i)) + `
 <main id="contenido" class="magazine">
   <div class="magazine-cover">
@@ -165,13 +174,20 @@ function magazinePage(i, { head, header, footer, esc }) {
   </section>
   <div class="wrap magazine-layout" id="casos">
     <nav class="magazine-index" aria-label="${issue.contents}">
-      <h2>${issue.contents}</h2>
-      <ol>${items.map(([id, title]) => `<li><a href="#${id}">${esc(title)}</a></li>`).join('')}</ol>
+      <div class="magazine-index-head">
+        <p class="eyebrow">${i ? 'Reading guide' : 'Guía de lectura'}</p>
+        <h2>${issue.contents}</h2>
+      </div>
+      <ol>${items.map(([id, title], n) => `<li><a href="#${id}"><span aria-hidden="true">${String(n + 1).padStart(2, '0')}</span>${esc(title)}</a></li>`).join('')}</ol>
+      <div class="magazine-index-actions">
+        <a href="#respuesta">${i ? 'I already shared money or data' : 'Ya pagué o compartí datos'}</a>
+        <a href="#magazine-reels-title">${i ? 'Back to videos' : 'Volver a los videos'} <span aria-hidden="true">↑</span></a>
+      </div>
     </nav>
     <div class="magazine-stories">
       ${phishingGuide(i, esc)}
       ${issue.topics.map(([id, title, detail, prevention, references = []], n) => `<article id="${id}">
-        <p class="magazine-story-number" aria-hidden="true">${String(n + 1).padStart(2, '0')}</p>
+        <p class="magazine-story-number" aria-hidden="true">${String(n + 2).padStart(2, '0')}</p>
         <h2>${esc(title)}</h2>
         <p>${esc(detail)}</p>
 ${id === 'pago-movil-falso' ? `        <picture class="magazine-media-alert">
@@ -179,8 +195,10 @@ ${id === 'pago-movil-falso' ? `        <picture class="magazine-media-alert">
           <img src="/assets/revista-alerta-${lang}.gif" width="560" height="315" loading="lazy" alt="${i ? 'Sent a payment screenshot? Check that the money reached your bank.' : '¿Te mandaron un comprobante? Confirma el abono en tu banco.'}">
         </picture>` : ''}
 ${id === 'citaciones' ? `        <p><a href="#video-cicpc">${i ? 'Watch the CICPC news clip' : 'Ver el noticiero sobre falsas citaciones'}</a></p>` : ''}
-${fieldNotes[i][id] ? `        <div class="magazine-evidence"><h3>${esc(fieldNotes[i][id][0])}</h3><p>${esc(fieldNotes[i][id][1])}</p></div>` : ''}
-        <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>
+        <div class="magazine-story-advice">
+${fieldNotes[i][id] ? `          <div class="magazine-evidence"><h3>${esc(fieldNotes[i][id][0])}</h3><p>${esc(fieldNotes[i][id][1])}</p></div>` : ''}
+          <div class="magazine-tip"><h3>${issue.prevention}</h3><p>${esc(prevention)}</p></div>
+        </div>
 ${references.length ? `        <ul class="magazine-sources">${references.map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>` : ''}
       </article>`).join('')}
       <article id="alertas-inversion">

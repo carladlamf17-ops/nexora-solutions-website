@@ -82,4 +82,4 @@ function phishingGuide(i, esc) {
   </article>`;
 }
 
-module.exports = { phishingGuide, phishingTitle: i => guides[i].title };
+module.exports = { phishingGuide };

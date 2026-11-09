@@ -375,27 +375,73 @@
 
 .magazine-layout {
   display: grid;
-  grid-template-columns: minmax(0, 270px) minmax(0, 780px);
-  justify-content: space-between;
+  max-width: 1160px;
+  grid-template-columns: clamp(205px, 23vw, 250px) minmax(0, 1fr);
   align-items: start;
-  gap: clamp(25px, 5vw, 80px);
-  padding-block: clamp(35px, 6vw, 84px);
+  gap: clamp(20px, 3vw, 40px);
+  padding-block: clamp(28px, 4vw, 56px);
 }
 .magazine-index {
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #f5f7fc;
+  position: sticky;
+  top: 120px;
+  max-height: calc(100dvh - 138px);
+  overflow: auto;
+  border: 1px solid #d7dce6;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 8px 24px #18213712;
 }
-.magazine-index h2 { margin: 0; font-size: 28px; }
-.magazine-index ol, .magazine-response ol { padding-inline-start: 1.4em; }
-.magazine-index li + li { margin-top: 10px; }
+.magazine-index-head {
+  padding: 15px 16px 13px;
+  border-top: 4px solid #d86c8a;
+  background: linear-gradient(120deg, #192132ef, #39273bd9), url('/assets/revista-chat-seguro.svg') 0 0 / 180px 146px, #24283a;
+  color: #fff;
+}
+.magazine-index-head .eyebrow { margin: 0 0 3px; color: #ffd3de; }
+.magazine-index h2 { margin: 0; font-size: 30px; line-height: 1; }
+.magazine-index ol { margin: 0; padding: 9px; list-style: none; }
+.magazine-index li + li { border-top: 1px solid #edf0f5; }
+.magazine-index li a {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  padding: 7px 6px;
+  border-radius: 5px;
+  color: #262e40;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.magazine-index li a span { color: #8b1731; font-variant-numeric: tabular-nums; }
+.magazine-index li a:hover, .magazine-index li a:focus-visible { background: #f7edf2; color: #8b1731; }
+.magazine-index-actions {
+  display: grid;
+  gap: 8px;
+  padding: 10px 15px 14px;
+  border-top: 1px solid #e1e5ee;
+  background: #f7f8fc;
+}
+.magazine-index-actions a { color: #8b1731; font-size: .84rem; font-weight: 700; }
+.magazine-response ol { padding-inline-start: 1.4em; }
+.magazine-stories { display: grid; gap: clamp(16px, 2.2vw, 28px); }
 .magazine-stories article {
-  padding-bottom: 34px;
-  margin-bottom: 34px;
-  border-bottom: 1px solid var(--line);
+  padding: clamp(17px, 3vw, 34px);
+  border: 1px solid #d7dce6;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 5px 18px #1821370a;
 }
-.magazine-stories h2 { margin: 0; font-size: clamp(30px, 4vw, 50px); }
+.magazine-stories article:target { border-top: 3px solid #a12321; }
+.magazine-stories h2 { margin: 0; font-size: clamp(30px, 3.5vw, 48px); line-height: 1.04; }
+.magazine-stories article > p:not(.magazine-story-number) { max-width: 76ch; margin-block: 12px 18px; }
+.magazine-story-advice {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 285px), 1fr));
+  gap: 12px;
+  margin-block: 16px;
+}
+.magazine-story-advice > .magazine-evidence { margin: 0; }
+.magazine-story-advice > .magazine-tip { padding: 14px 18px; }
 .magazine-tip, .magazine-response {
   padding: clamp(17px, 3vw, 34px);
   border-inline-start: 4px solid #3154d5;
@@ -412,6 +458,9 @@
 .nav-wrap nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: .3em; }
 @media (max-width: 850px) {
   .magazine-layout { grid-template-columns: minmax(0, 1fr); }
+  .magazine-index { position: static; max-height: none; }
+  .magazine-index ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .magazine-index li + li { border: 0; }
 }
 
 .magazine-cover-layout {
@@ -670,9 +719,9 @@
   color: #8d2220;
   font-weight: 800;
 }
-.magazine-index, .magazine-tip, .magazine-response { background: #f0f2f7; }
+.magazine-tip, .magazine-response { background: #f0f2f7; }
 .magazine-tip, .magazine-response { border-inline-start-color: #a12321; }
-.magazine-index a, .magazine-sources a, .magazine-response a { color: #8b1731; }
+.magazine-sources a, .magazine-response a { color: #8b1731; }
 @media (max-width: 650px) {
   .magazine-cover-topics { grid-template-columns: 1fr; padding-block: 8px; }
   .magazine-cover-topics a { padding: 4px 0; }

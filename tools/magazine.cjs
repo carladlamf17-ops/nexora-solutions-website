@@ -95,6 +95,10 @@ function magazinePage(i, { head, header, footer, esc }) {
     {
       id: 'video-cicpc', story: 'citaciones', asset: 'cicpc',
       label: 'CICPC', title: i ? '“There’s a complaint against you”' : '«Hay una denuncia en tu contra»'
+    },
+    {
+      id: 'video-phishing', story: 'guia-phishing', asset: 'phishing',
+      label: 'Phishing', title: i ? '“Your account will be locked”' : '«Tu cuenta se va a bloquear»'
     }
   ];
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
@@ -138,8 +142,8 @@ function magazinePage(i, { head, header, footer, esc }) {
     <div class="wrap">
       <p class="eyebrow">${i ? 'Digital alert · Vertical videos' : 'Alerta digital · Videos verticales'}</p>
       <h2 id="magazine-reels-title">${i ? 'Scams in short clips' : 'Estafas en video'}</h2>
-      <p class="magazine-reels-intro">${i ? 'Three simulated scams with narration and captions.' : 'Tres estafas simuladas con narración y subtítulos.'}</p>
-      <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all three.' : 'Desliza para ver los tres.'}</p>
+      <p class="magazine-reels-intro">${i ? 'Four simulated scams with narration and captions.' : 'Cuatro estafas simuladas con narración y subtítulos.'}</p>
+      <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all four.' : 'Desliza para ver los cuatro.'}</p>
       <div class="magazine-reels" role="region" aria-labelledby="magazine-reels-title" tabindex="0">
         ${videoClips.map(({ id, story, asset, label, title }, n) => `<article class="magazine-news magazine-news-${asset}" id="${id}">
           <p class="eyebrow"><span aria-hidden="true">${String(n + 1).padStart(2, '0')} · </span>${esc(label)}</p>

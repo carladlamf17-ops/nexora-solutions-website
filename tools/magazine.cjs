@@ -99,6 +99,11 @@ function magazinePage(i, { head, header, footer, esc }) {
     {
       id: 'video-phishing', story: 'guia-phishing', asset: 'phishing',
       label: 'Phishing', title: i ? '“Your account will be locked”' : '«Tu cuenta se va a bloquear»'
+    },
+    {
+      id: 'video-ponzi', story: 'ponzi', asset: 'ponzi',
+      label: i ? 'Ponzi schemes' : 'Esquemas Ponzi',
+      title: i ? '“Double your money”' : '«Duplica tu plata»'
     }
   ];
   const investmentTitle = i ? 'Investment traps in Venezuela: named cases and a recent warning' : 'Inversiones trampa en Venezuela: casos con nombre y una alerta reciente';
@@ -142,14 +147,16 @@ function magazinePage(i, { head, header, footer, esc }) {
     <div class="wrap">
       <p class="eyebrow">${i ? 'Digital alert · Vertical videos' : 'Alerta digital · Videos verticales'}</p>
       <h2 id="magazine-reels-title">${i ? 'Scams in short clips' : 'Estafas en video'}</h2>
-      <p class="magazine-reels-intro">${i ? 'Four simulated scams with narration and captions.' : 'Cuatro estafas simuladas con narración y subtítulos.'}</p>
-      <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all four.' : 'Desliza para ver los cuatro.'}</p>
+      <p class="magazine-reels-intro">${i ? 'Five simulated scams with narration and captions.' : 'Cinco estafas simuladas con narración y subtítulos.'}</p>
+      <p class="magazine-reels-hint">${i ? 'Scroll sideways to see all five.' : 'Desliza para ver los cinco.'}</p>
       <div class="magazine-reels" role="region" aria-labelledby="magazine-reels-title" tabindex="0">
         ${videoClips.map(({ id, story, asset, label, title }, n) => `<article class="magazine-news magazine-news-${asset}" id="${id}">
           <p class="eyebrow"><span aria-hidden="true">${String(n + 1).padStart(2, '0')} · </span>${esc(label)}</p>
-          <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-${asset}-${lang}.webp" aria-labelledby="${id}-title">
-            <source src="/assets/revista-noticiero-${asset}-${lang}.mp4" type="video/mp4">
-          </video>
+          <div class="magazine-phone">
+            <video class="magazine-news-video" controls playsinline preload="none" width="540" height="960" poster="/assets/revista-noticiero-${asset}-${lang}.webp" aria-labelledby="${id}-title">
+              <source src="/assets/revista-noticiero-${asset}-${lang}.mp4" type="video/mp4">
+            </video>
+          </div>
           <h3 id="${id}-title">${esc(title)}</h3>
           <a href="#${story}">${i ? 'Read the full story' : 'Leer el caso completo'}</a>
         </article>`).join('')}

@@ -1,6 +1,6 @@
 const editionDate = '2026-11-09';
 const { phishingGuide } = require('./magazine-phishing.cjs');
-const { records } = require('./magazine-dossiers.cjs');
+const { records, openings } = require('./magazine-dossiers.cjs');
 const { exhibit } = require('./magazine-exhibits.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
 const dossierRoute = (i, id) => magazineRoute(i) + id + '/';
@@ -251,12 +251,11 @@ function dossierPage(i, id, { head, header, footer, esc }) {
     : [];
   const back = magazineRoute(i);
   const number = String(dossierIds.indexOf(id) + 1).padStart(2, '0');
-  const compare = ([label, detail]) => `<div><h3>${esc(label)}</h3><p>${esc(detail)}</p></div>`;
   const clip = videoClips(i).find(video => video.story === id);
   const image = exhibit(i, id, esc);
   const imageCaption = `${image.title}. ${image.label}.`;
-  const visual = `<section class="magazine-dossier-card magazine-dossier-sample">
-      <h2>${id === 'alertas-inversion' ? (i ? 'Timeline' : 'Cronología') : (i ? 'Simulated example' : 'Ejemplo simulado')}</h2>
+  const visual = `<section class="magazine-dossier-sample" aria-label="${i ? 'Visual example' : 'Ejemplo visual'}">
+      <p class="eyebrow">${id === 'alertas-inversion' ? (i ? 'Timeline' : 'Cronología') : (i ? 'Simulated example' : 'Ejemplo simulado')}</p>
       <figure class="magazine-dossier-exhibit">
         <a class="screen-open" href="${image.url}" data-caption="${esc(imageCaption)}" aria-label="${i ? 'Enlarge' : 'Ampliar'}: ${esc(image.title)}">
           <img src="${image.url}" width="960" height="${image.height}" alt="${esc(imageCaption)}">
@@ -270,38 +269,45 @@ function dossierPage(i, id, { head, header, footer, esc }) {
     </section>`;
   return head(i, dossierRoute(i, id), `${title} | Nexora Solutions`, lead) + header(i, dossierRoute(1 - i, id)) + `
 <main id="contenido" class="magazine magazine-dossier">
-  <header class="magazine-dossier-cover">
-    <div class="wrap">
-      <a href="${back}#casos">← ${i ? 'Back to the magazine' : 'Volver a la revista'}</a>
-      <p class="eyebrow">${i ? 'Special report' : 'Reportaje'} · ${number} / ${i ? 'Issue 01' : 'Edición 01'}</p>
-      <h1>${esc(title)}</h1>
-      <p>${esc(lead)}</p>
-    </div>
-  </header>
-  <div class="wrap magazine-dossier-body">
-    ${clip ? `<div class="magazine-dossier-media">
-      <section class="magazine-dossier-card magazine-dossier-video">
-        <h2 id="dossier-video-title">${i ? 'Video report' : 'Noticiero'}</h2>
-        <p>${esc(clip.title)} · ${i ? 'Simulated scenes' : 'Escenas simuladas'}</p>
-        ${newsVideo(i, clip.asset, 'dossier-video-title')}
+  <article>
+    <header class="magazine-dossier-cover">
+      <div class="wrap magazine-dossier-measure">
+        <a class="magazine-dossier-back" href="${back}#casos">← ${i ? 'Back to the magazine' : 'Volver a la revista'}</a>
+        <p class="eyebrow">${i ? 'Cybersecurity / Report' : 'Ciberseguridad / Reportaje'} ${number}</p>
+        <h1>${esc(title)}</h1>
+        <p class="magazine-dossier-deck">${esc(lead)}</p>
+        <p class="magazine-dossier-byline"><strong>Nexora Solutions</strong><span>${i ? 'Issue 01' : 'Edición 01'}</span><time datetime="${editionDate}">${esc(editions[i].date)}</time></p>
+      </div>
+    </header>
+    <div class="wrap magazine-dossier-body magazine-dossier-measure">
+      <p class="magazine-dossier-opening">${esc(openings[id][i])}</p>
+      <p>${esc(evidence)} <a class="magazine-dossier-ref" href="#fuentes">${i ? 'See sources' : 'Ver fuentes'}</a></p>
+      <div class="magazine-dossier-media${clip ? ' has-video' : ''}">
+        ${visual}
+${clip ? `        <aside class="magazine-dossier-video">
+          <h2 class="eyebrow" id="dossier-video-title">${i ? 'Watch the news clip' : 'Ver el noticiero'}</h2>
+          ${newsVideo(i, clip.asset, 'dossier-video-title')}
+          <p>${esc(clip.title)} <span>${i ? 'Simulated scenes' : 'Escenas simuladas'}</span></p>
+        </aside>` : ''}
+      </div>
+      <section class="magazine-dossier-reading">
+        <h2>${esc(observed[0])}</h2>
+        <p>${esc(observed[1])}</p>
+        <h2>${esc(verified[0])}</h2>
+        <p>${esc(verified[1])}</p>
       </section>
-      ${visual}
-    </div>` : visual}
-    <section class="magazine-dossier-card">
-      <h2>${i ? 'What the sources document' : 'Qué documentan las fuentes'}</h2>
-      <p>${esc(evidence)}</p>
-      <ul class="magazine-sources">${[...references, ...additional].map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>
-    </section>
-    <section class="magazine-dossier-card magazine-dossier-compare">
-      <h2>${i ? 'Side-by-side comparison' : 'Comparación lado a lado'}</h2>
-      <div>${compare(observed)}${compare(verified)}</div>
-    </section>
-    <section class="magazine-dossier-card">
-      <h2>${i ? 'What to do, step by step' : 'Qué hacer, paso a paso'}</h2>
-      <ol>${steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>
-      <p><a href="${back}#${id}">${id === 'guia-phishing' ? (i ? 'Practice with eight links' : 'Practica con los ocho enlaces') : (i ? 'See the topic in the magazine' : 'Ver el tema en la revista')}</a></p>
-    </section>
-  </div>
+      <section class="magazine-dossier-guide">
+        <p class="eyebrow">${i ? 'Practical guide' : 'Guía práctica'}</p>
+        <h2>${i ? 'What to do, step by step' : 'Qué hacer, paso a paso'}</h2>
+        <ol>${steps.map(step => `<li>${esc(step)}</li>`).join('')}</ol>
+      </section>
+      <footer class="magazine-dossier-notes" id="fuentes">
+        <h2>${i ? 'Sources and documents' : 'Fuentes y documentos'}</h2>
+        <ul class="magazine-sources">${[...references, ...additional].map(([label, url]) => `<li><a href="${esc(url)}">${esc(label)}</a></li>`).join('')}</ul>
+        <p><a href="${back}#${id}">${id === 'guia-phishing' ? (i ? 'Practice with eight links' : 'Practica con los ocho enlaces') : (i ? 'See the topic in the magazine' : 'Ver el tema en la revista')}</a></p>
+      </footer>
+    </div>
+  </article>
 </main>` + footer(i) + '</body></html>';
 }
 

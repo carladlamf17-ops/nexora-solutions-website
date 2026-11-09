@@ -820,84 +820,144 @@
   text-decoration: none;
 }
 .magazine a.magazine-dossier-link:hover { background: #f2dce6; }
-.magazine-dossier-cover {
-  padding-block: clamp(22px, 4vw, 48px);
-  border-bottom: 1px solid #d7dce6;
-  background: radial-gradient(#4f597b30 .8px, transparent .8px) 0 0 / 9px 9px, #f0f2f7;
-}
-.magazine-dossier-cover .wrap, .magazine-dossier-body { max-width: 1100px; }
-.magazine-dossier-cover a { color: #76122d; font-weight: 700; }
-.magazine-dossier-cover .eyebrow { margin: 24px 0 10px; color: #8b1731; }
-.magazine-dossier-cover h1 {
-  max-width: 26ch;
-  margin: 0;
-  font-size: clamp(39px, 5.5vw, 72px);
-  line-height: .98;
-}
-.magazine-dossier-cover h1 + p { max-width: 65ch; margin: 16px 0 0; }
-.magazine-dossier-body {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: clamp(14px, 2vw, 24px);
-  padding-block: clamp(22px, 4vw, 52px);
-}
-.magazine-dossier-card {
-  padding: clamp(16px, 2.8vw, 30px);
-  border: 1px solid #d7dce6;
-  border-radius: 13px;
+.magazine-dossier {
+  --report-ink: #1d202a;
+  --report-accent: #8b1731;
+  --report-rule: #d7dbe4;
+  color: var(--report-ink);
   background: #fff;
+}
+.magazine-dossier-measure { max-width: 890px; }
+.magazine-dossier-cover {
+  padding-block: clamp(24px, 4vw, 52px) 22px;
+  background: linear-gradient(#f0f2f7, #fff);
+}
+.magazine-dossier-cover .wrap { border-top: 4px solid var(--report-accent); }
+.magazine-dossier .magazine-dossier-back {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--report-accent);
+  font-size: .85rem;
+  font-weight: 700;
+}
+.magazine-dossier-cover .eyebrow {
+  margin: clamp(22px, 4vw, 48px) 0 10px;
+  color: var(--report-accent);
+}
+.magazine-dossier-cover h1 {
+  max-width: 24ch;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(37px, 6vw, 74px);
+  letter-spacing: -.055em;
+  line-height: 1.01;
+}
+.magazine-dossier-deck {
+  max-width: 65ch;
+  margin: 16px 0 22px;
+  color: #484f60;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+}
+.magazine-dossier-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  margin: 0;
+  padding-block: 10px;
+  border-block: 1px solid var(--report-rule);
+  color: #4b5365;
+  font-size: .85rem;
+}
+.magazine-dossier-byline strong { color: var(--report-ink); }
+.magazine-dossier-body {
+  padding-block: 8px clamp(32px, 6vw, 70px);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(17px, 1.65vw, 21px);
+  line-height: 1.65;
   overflow-wrap: anywhere;
 }
-.magazine-dossier-card h2 { margin: 0 0 12px; font-size: clamp(27px, 3.2vw, 40px); line-height: 1; }
-.magazine-dossier-card h3 { margin: 0 0 6px; font-size: 24px; }
-.magazine-dossier-card p { margin: 0 0 12px; }
-.magazine-dossier-card p:last-child, .magazine-dossier-card ul:last-child { margin-bottom: 0; }
-.magazine-dossier-card ul, .magazine-dossier-card ol { padding-inline-start: 1.3em; }
-.magazine-dossier-card li + li { margin-top: 7px; }
-.magazine-dossier-sample { border-top: 3px solid #a12343; background: #f7f8fc; }
-.magazine-dossier-compare > div { display: grid; gap: 10px; }
-.magazine-dossier-compare > div > div { padding: 12px 14px; border-inline-start: 3px solid #a12343; background: #f5edf1; }
-.magazine-dossier-compare > div > div + div { border-color: #246c62; background: #ecf6f3; }
-@media (max-width: 700px) {
-  .magazine-dossier-body { grid-template-columns: 1fr; }
+.magazine-dossier-body > p, .magazine-dossier-reading > p { max-width: 71ch; margin: 0 0 1em; }
+.magazine-dossier-opening { color: #20283a; font-size: 1.12em; line-height: 1.58; }
+.magazine-dossier-body h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(24px, 3.3vw, 36px);
+  letter-spacing: -.035em;
+  line-height: 1.15;
 }
-
+.magazine-dossier .magazine-dossier-ref,
+.magazine-dossier-notes, .magazine-dossier-guide .eyebrow,
+.magazine-dossier-media { font-family: Barlow, Arial, sans-serif; }
+.magazine-dossier .magazine-dossier-ref { color: var(--report-accent); font-size: .85em; font-weight: 700; }
 .magazine-dossier-media {
+  margin-block: clamp(24px, 4vw, 42px);
+  padding-block: 15px 18px;
+  border-block: 1px solid var(--report-rule);
+}
+.magazine-dossier-media.has-video {
   display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 1fr) clamp(145px, 24%, 205px);
   align-items: start;
-  gap: clamp(14px, 2vw, 24px);
+  gap: clamp(16px, 3vw, 32px);
+}
+.magazine-dossier-media .eyebrow {
+  margin: 0 0 10px;
+  color: var(--report-accent);
 }
 .magazine-dossier-video {
-  --chat-accent: #ffc1cf;
-  color: #f4faff;
-  background: linear-gradient(140deg, #142330ee, #34293db8), url('/assets/revista-chat-seguro.svg') 0 0 / 180px 146px, #26364a;
+  --chat-accent: #b46a81;
+  padding-inline-start: clamp(10px, 2vw, 20px);
+  border-inline-start: 1px solid var(--report-rule);
 }
-.magazine-dossier-video .magazine-phone { margin-inline: auto; }
-.magazine-dossier-exhibit { margin: 0 0 12px; }
+.magazine-dossier-video h2.eyebrow {
+  font-family: Barlow, Arial, sans-serif;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.magazine-dossier-video p { margin: 8px 0 0; font-size: .85em; line-height: 1.35; }
+.magazine-dossier-video p span { display: block; color: #4b5365; font-size: .85em; }
+.magazine-dossier-exhibit { margin: 0 0 8px; }
 .magazine-dossier-exhibit .screen-open {
   display: grid;
-  justify-items: stretch;
-  overflow: hidden;
-  border: 1px solid #c3ccdc;
-  border-radius: 9px;
-  color: #76122d;
-  background: #fff;
+  width: 100%;
+  border: 1px solid var(--report-rule);
+  color: var(--report-accent);
+  background: #f6f8fc;
   text-align: left;
   text-decoration: none;
 }
 .magazine-dossier-exhibit img { display: block; width: 100%; height: auto; }
 .magazine-dossier-exhibit .screen-open > span {
-  padding: 8px 12px;
-  border-top: 1px solid #d7dce6;
-  font-size: .9em;
+  padding: 7px 10px;
+  border-top: 1px solid var(--report-rule);
+  font-size: .81em;
   font-weight: 750;
 }
 .magazine-dossier-exhibit .screen-open:hover > span { background: #f2dce6; }
-.magazine-dossier-exhibit figcaption { margin-top: 7px; font-size: .84em; color: #454e62; }
-.magazine-dossier-sample summary { cursor: pointer; color: #76122d; font-weight: 700; }
-@media (max-width: 700px) {
-  .magazine-dossier-media { grid-template-columns: minmax(0, 1fr); }
+.magazine-dossier-exhibit figcaption { margin-top: 7px; font-size: .82em; color: #454e62; }
+.magazine-dossier-sample details { font-size: .86em; }
+.magazine-dossier-sample summary { cursor: pointer; color: var(--report-accent); font-weight: 700; }
+.magazine-dossier-reading h2:not(:first-child) { margin-top: 25px; }
+.magazine-dossier-guide {
+  margin-block: clamp(24px, 4vw, 42px);
+  padding: 15px clamp(14px, 3vw, 26px);
+  border-inline-start: 4px solid var(--report-accent);
+  background: #f4f5f8;
+}
+.magazine-dossier-guide .eyebrow { margin: 0 0 6px; color: var(--report-accent); }
+.magazine-dossier-guide ol { margin: 0; padding-inline-start: 1.35em; }
+.magazine-dossier-guide li + li { margin-top: 7px; }
+.magazine-dossier-notes {
+  padding-top: 16px;
+  border-top: 2px solid var(--report-rule);
+  background: transparent;
+  font-size: .9em;
+}
+.magazine-dossier-notes h2 { font-size: 25px; }
+.magazine-dossier-notes p:last-child { margin-bottom: 0; }
+@media (max-width: 620px) {
+  .magazine-dossier-media.has-video { grid-template-columns: minmax(0, 1fr); }
+  .magazine-dossier-video { padding: 12px 0 0; border: 0; border-top: 1px solid var(--report-rule); }
 }

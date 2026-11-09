@@ -167,4 +167,39 @@ const records = {
   }
 };
 
-module.exports = { records };
+const openings = {
+  'guia-phishing': [
+    'El asunto anuncia que tu cuenta se bloqueará en media hora. En el ejemplo, el botón promete restablecer el acceso, pero al pasar el cursor aparece otro dominio. Esa pausa, antes del clic, cambia la lectura de todo el correo.',
+    'The subject line says your account will lock in half an hour. In the example, the button promises to restore access, but hovering reveals a different domain. That pause before clicking changes how the whole email reads.'
+  ],
+  'dolares-whatsapp': [
+    '«Prima, cambié de número». En la conversación simulada, el saludo llega antes de que se hable de plata. Después aparece una oferta de dólares y, cuando toca pagar, el dinero va a nombre de otra persona. Ese cambio de destinatario es el momento de salir del chat y comprobar quién está detrás.',
+    '“Cousin, I got a new number.” In the simulated chat, the greeting comes before any mention of money. Then comes an offer to sell dollars and, when it is time to pay, the money is supposed to go to someone else. That change of recipient is the moment to leave the chat and verify who is behind it.'
+  ],
+  'pago-movil-falso': [
+    'El primer pedido sale por Bs. 1.250. El segundo cuesta lo mismo y llega con una captura que parece correcta hasta que lees la referencia: 4821, otra vez. En esta reconstrucción, la cuenta del negocio registra un solo abono. Si se entregan los dos pedidos, una misma operación habrá respaldado ambas ventas.',
+    'The first order costs Bs. 1,250. The second costs the same and comes with a convincing screenshot until you read the reference: 4821 again. In this reconstruction, the shop’s account shows one credit. Deliver both orders and the same transaction will have been used for both sales.'
+  ],
+  ponzi: [
+    'En el ejemplo, depositas cien dólares y la pantalla te muestra doscientos. Retiras diez y parece que el sistema funciona. Cuando intentas sacar el resto, aparece otra condición: recargar. El primer retiro fue un pago. Para saber si hubo una ganancia, hay que averiguar de dónde salió ese dinero.',
+    'In the example, you deposit a hundred dollars and the screen shows two hundred. You withdraw ten and the system seems to work. Then you try to withdraw the rest and a new condition appears: top up. The first withdrawal was a payment. Finding out whether there was a profit means asking where that money came from.'
+  ],
+  adselect: [
+    'Un supuesto gestor escribe que tienes un saldo pendiente y ofrece liberarlo si recargas ese día. El mensaje es ficticio. Sirve para ver qué falta cuando una oferta usa un nombre conocido: quién está hablando, qué sitio administra y quién recibiría el dinero.',
+    'A supposed manager says you have a pending balance and offers to unlock it if you top up that day. The message is fictional. It shows what a familiar name leaves unanswered: who is speaking, which site they operate, and who would receive the money.'
+  ],
+  operadoras: [
+    'En la llamada simulada, el supuesto técnico promete subirte a 5G. El mensaje que llega al celular habla de otra cosa: registrar WhatsApp. Leer el SMS completo antes de dictar los números permite ver para qué sirve el código.',
+    'In the simulated call, the supposed technician promises a 5G upgrade. The message that arrives on the phone describes something else: registering WhatsApp. Reading the whole SMS before sharing the digits reveals what the code is for.'
+  ],
+  citaciones: [
+    'Primero llega la supuesta denuncia. Después, un archivo que parece una citación. El último mensaje de la recreación pide plata para cerrar el caso. Ahí conviene conservar la conversación y verificar el documento con la dependencia, por un canal que no te haya indicado quien escribe.',
+    'First comes the supposed complaint. Then comes a file that looks like a summons. The final message in the reconstruction demands money to close the case. That is the moment to save the conversation and verify the document with the agency through a channel you find independently.'
+  ],
+  'alertas-inversion': [
+    'SolesBot, Hyper AI y HV IJEX aparecen en publicaciones de años distintos. Leídas juntas, ayudan a entender cómo se repiten las promesas de rendimiento. Para saber qué circula hoy, toca separar esas fechas de la advertencia reciente de Sunaval y leer exactamente qué dice cada fuente.',
+    'SolesBot, Hyper AI, and HV IJEX appear in reports from different years. Read together, they show how promises of returns recur. To understand what is circulating today, separate those dates from Sunaval’s recent warning and check exactly what each source says.'
+  ]
+};
+
+module.exports = { records, openings };

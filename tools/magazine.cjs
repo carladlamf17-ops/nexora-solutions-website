@@ -2,6 +2,7 @@ const editionDate = '2026-11-09';
 const { phishingGuide } = require('./magazine-phishing.cjs');
 const { records, openings } = require('./magazine-dossiers.cjs');
 const { exhibit } = require('./magazine-exhibits.cjs');
+const { coverPhoto } = require('./magazine-cover-photos.cjs');
 const magazineRoute = i => `${i ? '/en' : ''}/revista/`;
 const dossierRoute = (i, id) => magazineRoute(i) + id + '/';
 const dossierIds = Object.keys(records);
@@ -277,6 +278,7 @@ function dossierPage(i, id, { head, header, footer, esc }) {
         <h1>${esc(title)}</h1>
         <p class="magazine-dossier-deck">${esc(lead)}</p>
         <p class="magazine-dossier-byline"><strong>Nexora Solutions</strong><span>${i ? 'Issue 01' : 'Edición 01'}</span><time datetime="${editionDate}">${esc(editions[i].date)}</time></p>
+        ${coverPhoto(i, id, esc)}
       </div>
     </header>
     <div class="wrap magazine-dossier-body magazine-dossier-measure">

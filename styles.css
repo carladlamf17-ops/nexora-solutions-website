@@ -870,6 +870,24 @@
   font-size: .85rem;
 }
 .magazine-dossier-byline strong { color: var(--report-ink); }
+.magazine-dossier-photo { margin: clamp(16px, 2.4vw, 28px) 0 0; }
+.magazine-dossier-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #e6eaf1;
+}
+.magazine-dossier-photo figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3px 14px;
+  padding-block: 7px;
+  border-bottom: 1px solid var(--report-rule);
+  color: #4b5365;
+  font-size: .78rem;
+}
+.magazine-dossier-photo figcaption a { margin: 0; font-size: inherit; font-weight: 600; }
 .magazine-dossier-body {
   padding-block: 8px clamp(32px, 6vw, 70px);
   font-family: Georgia, 'Times New Roman', serif;
